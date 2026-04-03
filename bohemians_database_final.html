@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Bohemians</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0c0c0c;color:#ddd;font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;min-height:100vh}
+.hdr{background:rgba(12,12,12,.95);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:16px 24px;position:sticky;top:0;z-index:100}
+.hi{max-width:880px;margin:0 auto;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.hi h1{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#f0f0f0;letter-spacing:.05em}
+.hi .sub{font-size:11px;color:#666;font-style:italic;margin-left:8px}
+.sr{width:260px;background:#1a1a1a;border:1px solid #222;color:#ddd;font-family:inherit;font-size:13px;padding:7px 12px;border-radius:4px;outline:none}
+.sr:focus{border-color:#555}.sr::placeholder{color:#444}
+.tabs{max-width:880px;margin:0 auto;padding:10px 24px 0;display:flex;border-bottom:1px solid #222}
+.tab{background:none;border:none;color:#666;font-family:inherit;font-size:13px;padding:7px 16px;cursor:pointer;border-bottom:2px solid transparent;text-transform:capitalize}
+.tab:hover{color:#aaa}.tab.on{color:#f0f0f0;border-bottom-color:#f0f0f0}
+.mn{max-width:880px;margin:0 auto;padding:24px 24px 100px}
+.stats{display:flex;gap:32px;margin-bottom:24px}
+.sn{font-size:28px;font-weight:700;line-height:1}.sl{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.sh{font-size:13px;font-weight:700;color:#f0f0f0;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid #222}
+.sc{background:#131313;border:1px solid #222;border-radius:4px;padding:11px 14px;margin-bottom:4px;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;cursor:pointer;transition:all .12s}
+.sc:hover{background:#1a1a1a;border-color:#333}.sc.d{opacity:.45;cursor:default}.sc.d:hover{background:#131313;border-color:#222}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#666;text-align:center}
+.st{font-size:13.5px;font-weight:600;color:#ddd;margin-bottom:1px}.ss{font-size:11.5px;color:#aaa;line-height:1.35}
+.b{font-family:'IBM Plex Mono',monospace;font-size:9.5px;padding:3px 7px;border-radius:3px;white-space:nowrap}
+.bd{color:#6abf7b;background:rgba(106,191,123,.08);border:1px solid rgba(106,191,123,.18)}
+.bs{color:#d4943a;background:rgba(212,148,58,.08);border:1px solid rgba(212,148,58,.18)}
+.bc{color:#9a7abf;background:rgba(154,122,191,.08);border:1px solid rgba(154,122,191,.18)}
+.bg{color:#bf6a6a;background:rgba(191,106,106,.08);border:1px solid rgba(191,106,106,.18)}
+.bk{background:none;border:none;color:#666;font-family:inherit;font-size:13px;cursor:pointer;padding:4px 0;margin-bottom:20px}.bk:hover{color:#aaa}
+.dh{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid #222}
+.dh h1{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#f0f0f0;line-height:1.2}
+.dh h2{font-size:15px;font-weight:400;color:#aaa;margin:4px 0 10px;font-style:italic}
+.dm{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.mt{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#666;background:#1a1a1a;padding:2px 6px;border-radius:3px;border:1px solid #222}
+.ds{color:#aaa;font-size:13px;font-style:italic;line-height:1.5}
+.sp{font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.85;color:#c8c8c8;white-space:pre-wrap;max-width:620px;margin:0 auto;word-wrap:break-word}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.cc{background:#131313;border:1px solid #222;border-radius:4px;padding:15px}.cc:hover{border-color:#333}
+.cc h3{font-size:15px;font-weight:700;color:#f0f0f0;margin-bottom:1px}
+.ca{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#666;margin-bottom:6px}
+.cc p{font-size:12.5px;color:#aaa;line-height:1.5}
+.cv{font-size:10.5px;color:#666;border-top:1px solid #222;padding-top:7px;margin-top:8px;font-family:'IBM Plex Mono',monospace;font-style:italic}
+.dg{margin-bottom:22px}
+.dg h3{font-size:13px;font-weight:700;color:#f0f0f0;margin-bottom:8px;padding-bottom:5px;border-bottom:1px solid #222}
+.di{display:flex;gap:8px;padding:3px 0;font-size:12.5px;align-items:baseline}
+.ck{color:#6abf7b;font-family:'IBM Plex Mono',monospace;font-size:10px}.dt{color:#aaa}
+.em{text-align:center;padding:40px;color:#666;font-style:italic}
+@media(max-width:768px){.hi{flex-direction:column}.sr{width:100%}.mn{padding:14px 12px 80px}.sc{grid-template-columns:26px 1fr auto}.cg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="hi"><div><h1>THE BOHEMIANS<span class="sub">Prague, Summer 1997</span></h1></div><input class="sr" id="sr" placeholder="Search scenes, characters, dialogue..."></div></header>
+<nav class="tabs" id="tabs"><button class="tab on" data-v="scenes">Scenes</button><button class="tab" data-v="characters">Characters</button><button class="tab" data-v="decisions">Decisions</button></nav>
+<main class="mn" id="app"></main>
+<script>
+const TEXTS={
+"scene-01.md":`FADE IN:
+
+EXT. LOS ANGELES - DAY
+
+The most beautiful day in the history of Los Angeles.
+
+The sky is that specific pornographic blue that only exists here - too perfect, almost digital. The kind of sky that makes you understand why people sell their souls to live in a city designed to destroy them.
+
+AERIAL: The Pacific Coast stretches from Malibu to Palos Verdes. White surf stitching the coastline. A hundred thousand swimming pools winking in the sun like turquoise eyes.
+
+SUPERIMPOSE: **Summer, 1997**
+
+The 405 is a parking lot. A sea of glinting metal baking in the heat. Nobody's moving. Nobody cares. This is the tax you pay.
+
+Billboards slide past:
+
+A fragrance ad. A movie poster for something with an explosion. A personal injury lawyer with teeth like piano keys.
+
+BEVERLY HILLS: A WOMAN in enormous sunglasses walks a dog the size of a football. A VALET sprints across a hotel driveway. TWO MEN in linen suits shake hands outside a restaurant where lunch costs more than rent.
+
+BRENTWOOD: Sprinklers arc across impossibly green lawns. A GARDENER blows leaves from one driveway to the next. A NANNY pushes a stroller past a Jaguar dealership.
+
+We keep moving west. Past the Getty, white and strange on its hill. Past the canyon roads. Past the gate where the city ends and the money begins.
+
+MALIBU.
+
+The light changes. Softer. Golden. The Pacific appearing and disappearing between eucalyptus and bougainvillea.
+
+A DRY WIND rustles through chaparral. Somewhere a FIRE WARNING SIGN reads: **EXTREME - RED FLAG CONDITIONS.**
+
+We drift down a private road. Past hedgerows. Past gates. Past a property so large you can't see the house from the street.
+
+THROUGH THE GATE:
+
+EXT. SANDS ESTATE - POOL AREA - CONTINUOUS
+
+Exquisitely landscaped. The kind of yard that takes three full-time gardeners to make look effortless. Mature palms, birds of paradise, a lawn so green it looks spray-painted.
+
+The pool is Olympic. Azure tile. Water barely moving. The Pacific visible beyond the infinity edge - pool becoming ocean becoming sky. All the same blue.
+
+RILEY SANDS (17) swims laps. Messy dark hair slicked back. Pale for Malibu - the kind of pale that says indoor kid. He's lean, not athletic. More sinew than muscle. His stroke is sloppy but persistent.
+
+He reaches the wall. Stops. Hangs there, breathing.
+
+Stares at the water. At nothing.
+
+A JOINT sits on the pool's edge, still smoking in a ceramic ashtray next to a Discman and a pair of headphones. Joy Division's Unknown Pleasures T-shirt wadded beside it.
+
+Riley pulls himself out. Doesn't towel off. Just sits on the warm stone, dripping, and picks up the joint. Takes a long drag.
+
+He exhales toward the sky. Watches the smoke climb and disappear.
+
+The estate is silent except for sprinklers and a distant leaf blower. The sound of money maintaining itself.
+
+Behind him, the MAIN HOUSE rises - Spanish colonial, terracotta roof, probably seven thousand square feet. A SMALLER STRUCTURE sits poolside - the pool house. Nicer than most people's homes.
+
+A MAID appears on the path from the main house. Fifties, Guatemalan, carrying a cordless phone.
+
+MAID
+Riley. Tu mamá.
+
+She holds out the phone. Riley takes it. The maid retreats.
+
+RILEY
+(into phone)
+Hey.
+
+His MOTHER's voice - distant, efficient, the cadence of someone managing logistics between appointments.
+
+MOTHER (V.O.)
+Madison called. She's on her way. She said to be ready.
+
+RILEY
+I am ready.
+
+He looks down at himself. Swim trunks. Dripping wet. Joint in hand.
+
+MOTHER (V.O.)
+Your father says the apartment's all set up. You have Marc's number?
+
+RILEY
+Yeah.
+
+MOTHER (V.O.)
+And you packed the blazer?
+
+RILEY
+Mom.
+
+MOTHER (V.O.)
+There might be events, Riley. Your father specifically—
+
+RILEY
+I packed it.
+
+Silence. The kind that fills with everything unsaid.
+
+MOTHER (V.O.)
+Well. Have a wonderful time, sweetheart.
+
+RILEY
+Thanks.
+
+MOTHER (V.O.)
+Call me when you land.
+
+RILEY
+I will.
+
+He won't.
+
+MOTHER (V.O.)
+I love you.
+
+RILEY
+Love you too.
+
+He clicks off. Sets the phone on the stone. Picks up the joint.
+
+Takes another hit. Holds it. The sprinklers cycle. The leaf blower drones.
+
+Riley stands. Walks toward the pool house. His wet feet leaving prints on the flagstone that evaporate almost instantly in the heat.
+
+INT. POOL HOUSE - CONTINUOUS
+
+Small but immaculate. More like a studio apartment - bed, kitchenette, bathroom. Band posters on the walls: Radiohead, Sonic Youth, The Cure. A GUITAR in the corner. Stacks of CDs. A lava lamp. Clothes everywhere.
+
+A SEGA GENESIS connected to a small TV. A SUPER NINTENDO beside it, controllers tangled.
+
+Riley's DUFFEL BAG sits by the door, packed. His GUITAR CASE beside it. Ready to go.
+
+He moves to the bathroom. Turns on the shower. Lets it run.
+
+He stands at the mirror. Studies himself.
+
+Dark hair, still wet from the pool, hanging in his face. Black nail polish, chipped. A thin silver chain his father gave him two Christmases ago when they still did Christmas.
+
+He looks at himself the way you look at something you can't quite figure out. Not vanity. More like confusion. Like he's waiting for his reflection to explain something.
+
+The steam from the shower starts fogging the mirror. His face softens, blurs, disappears.
+
+He steps into the shower.
+
+EXT. SANDS ESTATE - DRIVEWAY - LATER
+
+Riley emerges from the pool house. Unknown Pleasures tee, thrift store jeans, beat-up Converse. Duffel bag. Guitar case. Sunglasses pushed up on his head.
+
+A GROUNDSKEEPER waits on a golf cart at the bottom of the path. Weathered face, patient. The cart is utilitarian - not a toy.
+
+Riley loads his stuff. Climbs in.
+
+The cart winds down the long driveway. Past the tennis court. Past the guesthouse. Past the main house where his mother is probably already on another call.
+
+The gate opens automatically. The driveway spills onto a winding Malibu road.
+
+Riley looks back once. The estate already hidden behind hedgerows.
+
+Then forward.
+
+The cart deposits him at the bottom of the drive, where the private road meets the cul-de-sac. The groundskeeper nods. Drives back up.
+
+Riley stands at the curb. Alone with his stuff.
+
+He pulls the joint from behind his ear - one for the road. Lights it.
+
+Takes a long drag. Holds it. Exhales slowly toward the sky.
+
+The distant Pacific glitters below. Eucalyptus trees sway, their peeling bark catching light.
+
+A PEACOCK SCREAMS somewhere unseen. That primal, unhinged cry.
+
+Riley checks his watch. Where is she?
+
+The electric HUM of a golf cart approaches.
+
+A different golf cart. A worse golf cart.
+
+Riley doesn't turn. He knows that hum.
+
+---`,
+"scene-02.md":`The cart rounds the corner - DELMER MARTIN (12) at the wheel. Zinc oxide smeared across his nose like war paint. Eyeglasses with those dorky sunglass clip-ons flipped up. Oversized Billabong shirt hanging off his doughy frame. The confidence of someone who's never been told no.
+
+The cart lurches to a stop. Delmer kills the engine with unnecessary drama.
+
+DELMER
+Riley!
+
+Riley takes another hit. Doesn't look over.
+
+DELMER (CONT'D)
+What the fuck, man?
+Why haven't you been returning my calls?
+
+Riley finally turns. Deadpan.
+
+DELMER (CONT'D)
+I've reached out like six times.
+Is your answering machine outta tape or something?
+
+RILEY
+Delmer.
+
+Riley takes a massive hit. Holds it. Exhales in Delmer's general direction.
+
+DELMER
+Lemme hit that shit.
+
+RILEY
+What? No.
+You're like twelve.
+
+DELMER
+I've smoked before.
+
+RILEY
+Delmer, we sold you a bag of catnip like TWO weeks ago.
+You had no idea.
+
+DELMER
+(pause)
+That was catnip?
+
+RILEY
+Yeah dude. Catnip.
+(beat)
+Wait, you didn't actually smoke that did you?
+
+DELMER
+(too quick)
+No.
+(recovering)
+But, look, anyway what the fuck man?
+I feel like you might be avoiding me.
+Are you avoiding me?
+
+RILEY
+Yes.
+
+DELMER
+Ouch.
+That hurts.
+After all we've been through together.
+You're no longer invited to my Bar Mitzvah.
+
+RILEY
+Never was.
+
+DELMER
+Touché.
+(leans forward)
+So did you even listen to the messages?
+Like, even one?
+
+RILEY
+No. Were they important?
+Did you finally grow a pube?
+Figure out the Magic Eye?
+Find Waldo?
+
+Riley takes another drag.
+
+RILEY (CONT'D)
+Did your pet hamster die? Again?
+
+DELMER
+Nelson is fine, thank you for asking.
+(getting to it)
+Dude, I need your Sega Genesis.
+Since you'll be gone and shit.
+
+RILEY
+Dude why? You have like every console known to man.
+
+DELMER
+EXCEPT Sega Genesis.
+
+RILEY
+So, buy one?
+Your mom gets you whatever you want.
+Remember when you convinced her to buy you a tanning bed?
+
+DELMER
+That's the thing.
+I'm grounded.
+
+Riley raises an eyebrow.
+
+RILEY
+What now?
+
+DELMER
+I called Sam a faggot.
+
+Riley WINCES. Looks away.
+
+RILEY
+Jesus, Delmer.
+
+DELMER
+What? He's kind of fruity.
+(moving on)
+Anyway, I'm a bit fucking light on liquid right now.
+AND, I need to beat Sonic 3.
+I saw the stills of the last level in EGM and they look so fucking rad.
+
+He eyes Riley's duffel bag.
+
+DELMER (CONT'D)
+So? What'd'you say, Riley?
+Goonies Never Say Die?
+
+RILEY
+No.
+
+DELMER
+Dude, what the fuck?
+I'm losing my shit here, my brother!
+You're leaving the damn country.
+You don't even need it.
+
+RILEY
+I'm taking it with me.
+
+DELMER
+YOU'RE TAKING IT WITH YOU?
+
+RILEY
+And even if I wasn't...
+I wouldn't let you borrow it.
+You fucked up my Super Nintendo.
+
+DELMER
+Dude, everybody blows in the cartridge slot.
+EVERYBODY. I've seen you do it.
+
+RILEY
+You spit too much when you blow.
+
+DELMER
+Yeah, okay, dude.
+Keep making up stories.
+
+Riley looks down the road. Where is she?
+
+DELMER (CONT'D)
+So's Madison going with you?
+
+RILEY
+Where?
+
+DELMER
+To... wherever you're going?
+Moscow?
+
+RILEY
+Prague.
+
+DELMER
+Yeah's she going with you there?
+
+RILEY
+No.
+
+DELMER
+You guys break up?
+
+RILEY
+No.
+
+Delmer's eyes light up.
+
+DELMER
+So, you're saying she's available?
+
+RILEY
+Available for what?
+
+DELMER
+Sweet loving.
+Want me to keep her warm for you while you're gone?
+Eh, Riley?
+Keep the engine revved?
+
+Riley turns to face him fully now. Real disgust.
+
+RILEY
+Delmer, you are the slimiest, most repulsive little turd on this side of Surfrider.
+
+DELMER
+Dude you gotta admit she's got fantastic fucking knockers.
+Honestly, bro, just fucking unbelievable fucking jugs.
+
+The distant sound of an ENGINE approaching.
+
+Riley looks down the road. A white VOLVO C70 CONVERTIBLE rounds the corner.
+
+RILEY
+Good news, Delmer.
+Here she comes.
+You can tell her yourself.
+
+DELMER
+Shit.
+
+Delmer KEYS the golf cart. It whines to life.
+
+DELMER (CONT'D)
+Have fun in Poland.
+Dickface.
+
+The golf cart LURCHES forward, makes a wobbly three-point turn, and putters away just as Madison's Volvo pulls to the curb.
+
+Riley watches Delmer retreat. Takes one final drag. Flicks the roach into the gutter.
+
+Another PEACOCK SCREAM in the distance.
+
+Riley picks up his duffel and guitar case. Walks to the car.
+
+Madison's behind the wheel. Ray-Bans on. Hair pulled back tight.
+
+She's been crying. Her eyes are red behind the sunglasses. She's wiped her face but not well enough.
+
+Riley notices. Pauses at the passenger door.
+
+RILEY
+Hey. You okay?
+
+She manages a smile. Barely.
+
+MADISON
+Yeah. Allergies.
+(beat)
+Get in.
+
+Riley throws his stuff in the tiny back seat. Climbs in.
+
+He looks at her. She doesn't look back. Puts the car in drive.
+
+RILEY
+Babe, it's only for the summer.
+
+MADISON
+I know.
+
+She pulls away from the curb. The cul-de-sac shrinking in the mirror.
+
+Riley reaches over. Squeezes her hand.
+
+She lets him. For a moment. Then needs it back for the wheel.
+
+FADE TO:
+
+---`,
+"scene-03.md":`EXT. PACIFIC COAST HIGHWAY - DAY
+
+The Volvo hugs the curves. Top down. The Pacific sprawls endlessly to the left, all glitter and violence.
+
+Madison drives with surgical precision. Ray-Bans. Hair pulled back tight. Everything about her suggests destination, purpose, forward motion.
+
+Riley rides shotgun. Black nail polish chipped on his fingernails. Bangs falling across his face. He pushes them back absently, then they fall again. He's slouched low, one beat-up Converse propped against the dashboard.
+
+The guitar case and duffel are crammed in the tiny back seat.
+
+The radio's on. KIIS FM. "Cruel Summer" by Bananarama playing through tinny convertible speakers. DJ chatter between songs. The sound of every car in every lane on every summer day in Los Angeles.
+
+RILEY
+What do you think of Napalm Sunday?
+
+MADISON
+For what?
+
+RILEY
+Band name.
+
+MADISON
+Riley, you're not in a band.
+
+RILEY
+Yeah, but only because Berman won't get his shit together long enough to learn bass.
+
+Silence. Madison rolls her eyes. Opens her mouth to speak, reconsiders.
+
+RILEY (CONT'D)
+Cool, right?
+
+MADISON
+If you're aiming for a name that sounds like a weapon, then, yeah. Cool.
+
+RILEY
+I knew you would!
+
+Before she can respond, Riley reaches forward and EJECTS the CD mid-song. Just tosses it into the back seat.
+
+MADISON
+Hey—
+
+RILEY
+I almost forgot. You've gotta hear this.
+
+He shoves in a CD.
+
+THE MISFITS — "Last Caress" — EXPLODES from the speakers. Glenn Danzig's unhinged croon. That opening line about killing babies. A razorblade in soapy water.
+
+Riley immediately starts nodding, feeling it.
+
+Madison's whole body tightens.
+
+MADISON
+Riley.
+
+RILEY
+(oblivious, almost singing along)
+Right? It's like... beautiful violence.
+
+MADISON
+I'm just not in the mood.
+
+RILEY
+It's poetry!
+
+MADISON
+It's chaos.
+
+RILEY
+Exactly.
+
+She TURNS IT OFF.
+
+RILEY (CONT'D)
+Whoa, you're missing the chorus—
+
+A chain reaction of red.
+
+Traffic slows. Stops. Creeps. Stops again.
+
+Madison downshifts. The Volvo joins the crawl.
+
+RILEY
+(craning his neck)
+The fuck?
+
+Traffic is DEAD. They're barely moving. Cars inching forward in that specific PCH misery — nowhere to exit, ocean on one side, cliff on the other.
+
+A beat-up JEEP WRANGLER creeps alongside them in the next lane. Surfboard strapped to the roof rack. Four bodies inside.
+
+BRYCE (18) drives. Water polo build, backwards cap, wraparound Oakleys. The jawline of someone who peaked at sixteen.
+
+PERRY rides shotgun. Leaner, meaner. Tank top. That specific Malibu jock bronze.
+
+BRYCE
+Hey, look — it's the fag patrol!
+
+Perry HOWLS.
+
+PERRY
+Hey fag!
+
+CANDACE stands in the back, holding the roll bar, wind in her perfect highlights.
+
+CANDACE
+Madison!
+
+MADISON
+(genuine)
+Hiiii, Candace!
+
+And in the back seat, mostly horizontal, a fourth figure: CHRIS (17). The Burnout. Tie-dye shirt. Eyes at half-mast. Present in body only.
+
+CHRIS
+I can't feel my legs.
+
+PERRY
+Hey Madison, when're you gonna ditch this homo for someone who doesn't gargle cocks for a living?
+
+Riley doesn't react. Keeps staring at the ocean like he didn't hear it. His painted nails drum against his knee.
+
+MADISON
+I guess that rules out your mom.
+
+JEERS from the Wrangler.
+
+CANDACE
+(unfazed, chatty)
+You guys going to Altman's party tonight?
+I heard his dad booked, like, Flock of Seagulls or something.
+
+MADISON
+I might.
+Riley's moving to Europe.
+
+PERRY
+What a fag!
+
+BRYCE
+Total fag move. Europe's very gay.
+Perfect for you, Riley.
+
+CHRIS
+(from somewhere horizontal)
+Did you hear that?
+
+Nobody acknowledges this.
+
+CANDACE
+(to Riley, openly flirting, leaning over the roll bar)
+Why are you going to Europe, Riley?
+
+RILEY
+Some movie thing.
+I promised my dad.
+
+BRYCE
+FAG!
+
+CANDACE
+(ignoring Bryce completely)
+Aw, we're gonna miss you, Riley.
+Summers in Malibu are the best.
+You sure you won't reconsider?
+
+RILEY
+I don't really have a choice.
+
+CHRIS
+Do you guys hear that?
+
+PERRY
+Shut up, fag.
+
+Traffic CRAWLS. The two vehicles inching forward together, unable to separate. The ocean sparkling obscenely to the left. Heat rising off the asphalt.
+
+And then — the cause of the slowdown reveals itself.
+
+Up ahead, pulled onto the narrow shoulder: a VOLKSWAGEN BUS. Vintage. Hand-painted. Flowers and peace signs.
+
+It's ON FIRE.
+
+Not dramatic movie fire. Sad fire. Engine-compartment fire. Black smoke pouring from the back, flames licking up through the vents. The paint blistering, peace signs melting.
+
+A HIPPIE FAMILY stands on the gravel shoulder watching it burn. Father in a ponytail and Birkenstocks. Mother holding a toddler. Two older kids sitting on a cooler, looking bored. A GOLDEN RETRIEVER on a leash, panting.
+
+They're not panicking. They're just... watching. Like they've accepted this as the universe's plan.
+
+Traffic creeps past them. Everyone rubbernecking.
+
+BRYCE
+(pointing)
+That right there is fucking hilarious.
+
+PERRY
+Get a job, losers!
+
+Riley watches the burning van slide past. The hippie father meets his eyes for a moment. Something in that look. Not anger. Not shame. Just... resignation. The quiet death of a certain kind of dream.
+
+Madison watches too. Says nothing.
+
+A POLICE CRUISER appears behind the Wrangler. Lights not on, but present. Visible. A BLIP.
+
+OFFICER ON BULLHORN
+Remain seated in your vehicle.
+
+Candace sticks out her tongue and gives him the bird.
+
+CANDACE
+You'll never take me alive, PIGS!
+
+BRYCE
+Hey Madison, I'll race you to Sunset.
+Winner pays for the keg.
+
+MADISON
+Wouldn't be fair.
+
+BRYCE
+Why, because girls can't drive?
+
+MADISON
+No, because that thing looks like it goes 0-60 in never.
+
+Bryce REVS the engine.
+
+BRYCE
+You're on, dummy.
+(to his crew)
+Buckle up, losers.
+
+Traffic thins enough for the cars to separate. Candace stands like the drop girl in Rebel Without A Cause and goes through the motions.
+
+CANDACE
+On the drop. Ready. Set.
+
+She drops her hand.
+
+Bryce FLOORS it. The Wrangler PEELS away, engine screaming, surfboard rattling on the rack.
+
+Madison continues at an even pace.
+
+CANDACE
+(waving, bright, already receding)
+Have fun in Europe, Riley!
+
+PERRY
+Careful not to choke to death on all those cocks, fag!
+Pace yourself!
+
+CHRIS
+(suddenly, standing up in the back seat, arms spread, no pants)
+I AM A GOLDEN GOD!
+
+Candace yanks him down.
+
+The Wrangler surges ahead, weaving through traffic.
+
+As it grows smaller — Perry's SHORTS DROP. Full moon. White ass blazing in the California sun.
+
+Then they're gone. Swallowed by the Pacific Coast Highway.
+
+Silence in the Volvo.
+
+Riley reaches forward. Turns the Misfits back on. Danzig murmuring about sweet lovely death.
+
+The Pacific scrolls past. Endless. Indifferent. Behind them, the Volkswagen still burns.
+
+FADE TO:
+
+---`,
+"scene-04.md":`EXT. LAX - DEPARTURES CURB - DAY
+
+The white zone. That brutal choreography of cars and cops and luggage and goodbye.
+
+Madison pulls the Volvo to the curb. Doesn't kill the engine.
+
+A TRAFFIC COP works the line, keeping things moving. Whistles. Hand signals. Nobody gets more than ninety seconds.
+
+Riley reaches into the back seat. Grabs his duffel. His guitar case.
+
+He pauses. Looks at Madison.
+
+She's gripping the wheel. Both hands. Staring forward through the windshield at the terminal doors.
+
+RILEY
+Hey.
+
+She doesn't turn.
+
+RILEY (CONT'D)
+Mads, it's just for the summer.
+I will email you every day.
+
+She turns. Sunglasses off now. And her face—
+
+She's been crying again. Or still. The eyes red, the mascara holding on by a thread.
+
+MADISON
+Riley, I don't think we should be together anymore.
+
+Horns. Luggage wheels on concrete. A skycap shouting. The world's mechanical noise.
+
+RILEY
+Wait — what?
+
+MADISON
+I think we should break up.
+
+RILEY
+Is this because I'm leaving?
+
+MADISON
+It's not because you're leaving.
+
+RILEY
+Then why?
+
+She looks at him. Really looks at him. He looks genuinely confused, like she's speaking another language.
+
+And maybe she is. Maybe she's been speaking it all day — the red eyes at the curb, the clenched silence on PCH, the Mazzy Star she keeps putting back on like a hymn for something already dead.
+
+TRAFFIC COP
+(approaching, sharp whistle)
+Let's go! White zone is for loading and unloading only!
+
+RILEY
+Madison—
+
+MADISON
+You need to go.
+
+RILEY
+I don't understand.
+
+MADISON
+I know.
+
+He sits there. Frozen. Duffel in his lap. Guitar case wedged behind his seat.
+
+TRAFFIC COP
+(closer now, louder)
+Ma'am! You need to move this vehicle!
+
+Riley leans over. Tries to kiss her. She turns her head. He catches her cheek.
+
+RILEY
+I love you.
+
+She doesn't say it back.
+
+TRAFFIC COP
+NOW, ma'am!
+
+Riley gets out. Pulls his stuff from the back seat. Stands on the curb holding everything he owns that matters.
+
+He looks at her through the open passenger door.
+
+RILEY
+When I get back—
+
+MADISON
+I don't know.
+
+The traffic cop WHISTLES again.
+
+Riley closes the door.
+
+Madison puts the car in drive. Pulls forward. Doesn't look back.
+
+The white Volvo merges into the departures traffic. Disappears.
+
+Riley stands on the curb. Guitar case. Duffel bag. The Los Angeles sun beating down on him like a judgment.
+
+He doesn't move for a long time.
+
+Then he picks up his stuff and walks through the sliding doors into the terminal.
+
+---
+
+EXT. LAX - PARKING STRUCTURE - CONTINUOUS
+
+The Volvo spirals up through the concrete parking structure. Level by level. Fluorescent light strobing through the windshield.
+
+Madison pulls into a space. Kills the engine.
+
+Silence.
+
+She puts both hands on the steering wheel. Stares straight ahead.
+
+And then it hits her. All of it. The weight of what she just did.
+
+She lowers her forehead to the wheel and SOBS. Not the controlled leaking from behind sunglasses. This is the real thing. The ugly, heaving, can't-breathe thing.
+
+She cries for a long time.
+
+When she finally lifts her head, mascara streaked, nose running, she catches her reflection in the rearview mirror.
+
+Seventeen years old. Alone in a parking garage.
+
+She wipes her face with the back of her hand. Starts the car.
+
+The Volvo spirals back down. Level by level. She merges onto Sepulveda. Then the 405 North. The freeway still a parking lot. The sun still impossibly golden.
+
+Los Angeles doesn't care. It never does.
+
+FADE TO BLACK.
+
+---`,
+"scene-05.md":`HARD CUT FROM BLACK:
+
+INT. PRAGUE RUZYNĚ AIRPORT - ARRIVALS HALL - LATE AFTERNOON
+
+Fluorescent lights. Linoleum. The smell of cigarette smoke and industrial cleaner. Signs in Czech with smaller English underneath, the letters full of háčeks and čárkas that Riley's eyes slide off of.
+
+He emerges through customs looking like something the Atlantic chewed up and spat out. Pale. Wrinkled. The Unknown Pleasures T-shirt he's been wearing for twenty hours. Guitar case in one hand, duffel strap cutting into his shoulder.
+
+He scans the crowd.
+
+Families reuniting. Couples embracing. Drivers holding signs with names in Czech. A businessman walks directly into Riley's path without seeing him.
+
+Everyone finding their person.
+
+Riley stands on his toes. Looks for a sign with his name. A familiar face. Anything.
+
+Nothing.
+
+He checks the arrivals hall again. Slower this time. Methodical. Past the currency exchange booth, past the newsstand with magazines in languages he can't read, past the café where people are drinking tiny espressos and smoking indoors.
+
+No one.
+
+He moves to the BAGGAGE CAROUSEL. It's still running. A few unclaimed bags going around and around. He spots his duffel — already on its fifth or sixth revolution, looking as tired as he does.
+
+He grabs it.
+
+His guitar case — the hard case, the good one his father bought him — already in his hand. He sets it down. Pops the latches.
+
+Opens it.
+
+The neck is snapped clean. Strings curled like dead fingers. The body cracked along the grain — a jagged line running from the sound hole to the base. Driftwood and wire spaghetti.
+
+Riley stares at it.
+
+He doesn't react. No anger. No grief. He's past that. He just looks at it the way you look at a clock that's stopped — registering the information without the energy to feel anything about it.
+
+He closes the case. Latches it.
+
+Picks it up. The dead weight of it.
+
+The carousel continues its slow revolution. Empty now except for a single battered suitcase that nobody's claimed. Going around and around.
+
+Riley walks toward the exit.
+
+---
+
+EXT. PRAGUE RUZYNĚ AIRPORT - ARRIVALS CURB - LATE AFTERNOON
+
+Riley emerges through the sliding doors into—
+
+Light. But not California light. Something thinner. Cooler. Late afternoon sun slanting through a sky that's paler than he's used to, like someone washed the blue out.
+
+The curb is mostly empty. A few taxis. A bus idling. Exhaust mixing with cigarette smoke from travelers huddled near the doors.
+
+Everything looks slightly wrong. The cars are smaller. The signs are incomprehensible. The concrete has a different color — greyer, grimmer, like it was poured with less optimism.
+
+Riley looks left. Right. No production van. No Marc. No anyone.
+
+He sets his duffel down. Sits on it.
+
+The guitar case beside him like a small coffin.
+
+He reaches into his pocket. Pulls out his BOARDING PASS. Crumpled, stamped, useless now.
+
+He looks at it.
+
+LAX → FRANKFURT → PRAGUE. The whole trajectory of the worst day of his life, printed on a slip of paper.
+
+He tears off a corner. Lets it go. The breeze takes it.
+
+Another piece. And another.
+
+Slowly, methodically, Riley tears the boarding pass into tiny pieces. Confetti. He watches each one float away across the arrivals curb. Some catch in the breeze and tumble toward the taxi stand. Some stick to the damp concrete. One lands on his shoe. He flicks it off.
+
+The last fragment. He lets it go.
+
+Nothing left now connecting him to where he came from.
+
+He sits on his duffel. Guitar case beside him. The light softening. Late afternoon turning golden, though not the golden he knows. This gold is different — thinner, older, tinged with something he can't name.
+
+Time passes. The light changes.
+
+The taxis come and go. The buses cycle. People emerge, find their rides, leave.
+
+Riley sits.
+
+A JANITOR appears inside the glass doors. Mop and bucket. He looks at Riley through the glass. That universal look of: *you okay, kid?*
+
+Riley doesn't notice.
+
+The sun drops below the airport's roofline. Shadow creeps across the curb. The air cools. Riley's T-shirt isn't enough anymore but he doesn't dig for a jacket.
+
+He just sits.
+
+Dusk.
+
+---`,
+"scene-06.md":`The airport lights have clicked on. That particular sodium-vapor orange. The sky above going from pale to bruised to dark.
+
+A PRODUCTION VAN screeches to the curb. Old. Dented. Czech plates. Something that might once have been white.
+
+The driver's door FLIES open.
+
+MARC (30s) erupts from the van like a man who's been fired from a cannon. Ponytail. Cargo shorts. Cargo vest. Boots that look Hungarian or military or both. He's already talking before his feet hit the ground.
+
+MARC
+Oh fuck oh fuck oh fuck.
+Riley.
+RILEY.
+I am SO sorry.
+You would not BELIEVE the day I've had.
+
+He's speed-walking toward Riley, arms already gesturing.
+
+MARC (CONT'D)
+I was supposed to be here four hours ago.
+FOUR HOURS.
+But then Katka — you don't know Katka, you'll meet Katka, she's our production coordinator, incredible woman, Czech, obviously — Katka calls me and says the Arri's stuck in customs.
+The ARRI. Our camera.
+Which we need. To make the film. That your father is paying for.
+So I had to go to the cargo terminal, which is on the OTHER side of the airport — you'd think they'd put it closer, but no — and I'm talking to this guy, this customs guy, and he doesn't speak English, or he does but he's pretending not to, which is a whole thing here, you'll learn—
+
+He reaches Riley. Finally stops. Looks at him.
+
+Riley is sitting on his duffel. Guitar case beside him. Face blank. Eyes somewhere else.
+
+MARC (CONT'D)
+Jesus.
+You look like shit.
+
+RILEY
+Thanks.
+
+MARC
+Have you been sitting here the whole time?
+
+Riley doesn't answer.
+
+MARC (CONT'D)
+(softer, briefly)
+Okay.
+Let's get you out of here.
+(back to normal volume immediately)
+The van's a piece of shit but it runs.
+Mostly.
+Your dad sends his love, by the way. He's still in Berlin. Gap funding stuff. He said to tell you the apartment's all set up and—
+
+He's already grabbing Riley's duffel, hauling it toward the van.
+
+MARC (CONT'D)
+— he'll be back in a week, maybe ten days, he wasn't specific, you know how he is.
+
+Riley picks up the guitar case. Follows.
+
+MARC (CONT'D)
+You got everything? Passport? Didn't leave anything on the plane?
+(not waiting for answers)
+So the boots — let me tell you about the boots—
+
+Riley climbs into the passenger seat. The van smells like cigarettes and old coffee and something chemical. The dashboard is cracked. A pine tree air freshener hangs from the mirror, long dead.
+
+Marc climbs in. Still talking.
+
+MARC (CONT'D)
+— I met this Hungarian girl at Újezd, which is this bar, you'll see it, and she says her father makes boots. MAKES them. By hand. Military style. So I'm thinking, for the film, for the period stuff, these could be perfect, right? So I go out to her village — and let me tell you, Hungarian villages are a TRIP—
+
+The van pulls away from the curb. Prague opening up beyond the windshield.
+
+Riley leans his head against the window. The glass cold against his temple.
+
+---`,
+"scene-07.md":`EXT./INT. PRODUCTION VAN - MOVING - NIGHT
+
+Prague at night. Not the Prague of postcards. The Prague of the highway in from the airport — industrial parks, panel housing blocks, construction sites lit by arc lamps. Soviet-era architecture repeating itself in the darkness like a stutter.
+
+Marc drives with one hand, gesticulates with the other.
+
+MARC
+The thing about Prague — and I say this as someone who's been here, what, two years now — the thing about Prague is you should've been here five years ago.
+
+Riley stares out the window. Sodium streetlights sliding past, painting his face orange, dark, orange, dark.
+
+MARC (CONT'D)
+'92, '93 — THAT was Prague.
+Right after the revolution.
+Everything was open. Everything was possible.
+You could rent an apartment in Malá Strana for like fifty bucks a month.
+The expat scene was insane — writers, filmmakers, musicians, just pure creative chaos.
+Everyone was starting a magazine or a theater company or a gallery.
+Havel was president. HAVEL. A fucking playwright running the country.
+Can you imagine?
+
+Riley can't imagine. Riley can barely keep his eyes open.
+
+MARC (CONT'D)
+But it's still good. Don't get me wrong.
+It's still really, really good.
+Just... different.
+More tourists now. More money. Some of the magic's...
+(searching)
+...I mean, it's still magical. Obviously.
+You'll see.
+
+They enter the city proper. The architecture shifts. Older buildings. Cobblestone streets. Tram tracks gleaming in the headlights.
+
+MARC (CONT'D)
+Your dad picked a great flat. Vinohrady. Very cool neighborhood. Lots of cafés, couple good bars. There's a park nearby.
+
+Riley's eyelids are heavy.
+
+MARC (CONT'D)
+Oh — hey. Do you mind if we make a quick stop?
+I gotta drop something off.
+
+Riley doesn't respond.
+
+MARC (CONT'D)
+It'll take two minutes. Five minutes tops.
+
+---
+
+EXT. PRAGUE SIDE STREET - NIGHT
+
+The van turns off a main road into a narrower street. Then narrower. The buildings taller, closer together. Graffiti on the walls. A streetlight out, then another that works, then another that flickers.
+
+Marc pulls over. Kills the engine.
+
+MARC
+Be right back.
+
+He grabs a manila envelope from behind the seat. Gets out. Disappears through a doorway.
+
+The engine ticks as it cools.
+
+Riley sits in the dark.
+
+Silence. Then not silence. The city filling in around him.
+
+A sharp POP somewhere. Then another.
+
+Riley tenses. Sits up straighter.
+
+Voices — a man and woman, rapid Czech. Loud. Are they fighting? Laughing? He can't tell. The language is all edges and consonants, every exchange sounding like an argument to ears that don't know the music of it.
+
+A WOMAN walks past the van. Heels on cobblestone. Short skirt. She glances in. Makes eye contact with Riley through the windshield.
+
+He looks away fast. Is she—? Or is she just—? He has no idea. Everything is weighted with possibility and threat in a place where you can't read any of the signs.
+
+The woman walks on. Disappears around a corner.
+
+Another POP. Closer.
+
+A DOG barks. Aggressive. Close. Then stops.
+
+Riley's heart is working but his body is too wrecked to produce real adrenaline. Just this low-grade hum of dread he's too tired to process.
+
+Headlights sweep across the van. Riley flinches. Ducks slightly. Why? He doesn't know.
+
+The car passes.
+
+Then — a BOTTLE ROCKET screams up from behind a building. Explodes in a shower of sparks against the Prague sky.
+
+Fireworks. Just fireworks.
+
+But his heart's still going.
+
+Another rocket. Then laughter. Kids somewhere, celebrating something. Or just being kids.
+
+Riley exhales. Leans back. Closes his eyes.
+
+Opens them immediately. Where the fuck is Marc?
+
+Time expands. Five minutes. Ten. Fifteen. Riley has no way to measure it. No watch. His body clock destroyed by time zones and heartbreak and THC and whatever's left of his hangover.
+
+The building Marc entered has lights on in the upper floors. Shadows moving behind curtains. More voices. Someone laughs. A door slams.
+
+Finally — Marc emerges. Jogging. Apologetic.
+
+MARC
+Sorry, sorry.
+She would NOT stop talking.
+
+He climbs in. Starts the van. Pulls away.
+
+MARC (CONT'D)
+So — where were we? Right. Vinohrady.
+You're gonna love Vinohrady.
+
+---`,
+"scene-08.md":`EXT. VINOHRADY APARTMENT BUILDING - NIGHT
+
+A handsome old building, though you can't quite tell in the dark. Five stories. Art Nouveau bones under decades of grime. A heavy wooden door with ornamental ironwork.
+
+Marc fumbles with keys. An absurd number of keys.
+
+MARC
+It's this one. No. This one. No.
+(trying another)
+Czech locks are a whole... thing. Three locks. They love locks here. Communism, you know? Everybody locking everybody out.
+
+The door opens.
+
+INT. STAIRWELL - CONTINUOUS
+
+Narrow. Dim. One bare bulb on a timer that's already clicking toward darkness.
+
+The smell hits Riley — old cigarettes, cooked cabbage, floor wax, stone. A specific smell that belongs to this building and every building like it. The smell of a country that spent forty years behind a curtain.
+
+They climb. Riley hauling his duffel and the guitar case — the dead guitar, heavier now somehow. Marc bounding ahead.
+
+Through the walls, through the doors: a BABY CRYING. A TELEVISION too loud — canned laughter from a Czech sitcom. Someone practicing VIOLIN, badly. The building alive behind its closed doors.
+
+A door opens one flight above. Heavy footsteps. A MAN passes them on the stairs — big, bearded, leather jacket, smelling like cigarettes and Pilsner. He nods at Marc. Says something in Czech. Low, gravelly.
+
+Marc responds. The man laughs. Keeps going.
+
+Riley has no idea what just happened. Friendly? Threatening? Perfectly normal?
+
+Text without context. That's all any of this is.
+
+MARC
+That's Pan Kovář. Nice guy. Electrician.
+He's got a daughter your age, actually.
+
+They reach the third floor. Marc works three separate locks on a heavy door.
+
+INT. FLAT - CONTINUOUS
+
+The door swings open.
+
+Sparse. Soviet bones. High ceilings, which is the nicest thing about it. Parquet floors, warped in places. Walls painted a color that was probably cream twenty years ago.
+
+A couch. A table. Chairs that don't match. The SPUTNIK TV in the corner — cathode-ray tube, rabbit ears, the kind of set that picks up four channels, all in Czech.
+
+A kitchen through an archway. Riley can see the FRIDGE from here — small, humming loudly, the brand name in Cyrillic.
+
+Bookshelves with someone else's books. A window overlooking the street. Tram tracks visible below.
+
+Everything beige and brown and functional. The apartment of a country that spent decades being told aesthetics were bourgeois.
+
+MARC
+Okay. So. Your room's down the hall, I think. Or it might be the other one. Your dad wasn't super specific.
+(checking his watch)
+Shit, I gotta get back to the office. We're in pre-production hell right now. I might be scarce for a few days but I'll check in on you.
+Sabina has a key. She comes and goes.
+(already halfway out the door)
+There's beer in the fridge. Czech beer. Best in the world. Don't let anyone tell you otherwise.
+Oh — and don't drink the tap water. Or do. People here do. I don't know.
+Welcome to Prague!
+
+The door closes.
+
+Riley stands in the flat. Alone.
+
+The fridge hums. A tram passes below, its bell clanging. The building settles around him — creaks and murmurs and the faint sound of that bad violinist still practicing.
+
+Riley doesn't explore. Doesn't open the fridge. Doesn't look for his room.
+
+He drops his duffel. Sets the guitar case down carefully — gently, even though what's inside is already destroyed.
+
+He looks at the couch. Walks to it. Sits. Then lies down. The cushions are hard and smell like dust and someone else's life.
+
+He's asleep in seconds.
+
+Days pass.
+
+Not a montage. Not an adventure. Just days. The flat absorbs Riley and Riley lets it. He sleeps on the couch. Wakes up. Stares at Czech television he can't understand. Drinks the beer in the fridge until it's gone. Eats whatever was already in the cupboard — stale bread, a tin of something — then nothing, because he doesn't know how to buy food in a country where he can't read the signs, can't speak the language, can't figure out the money.
+
+The prince outside the palace walls, discovering he can't feed himself.
+
+Marc doesn't check in. Or he does, once, by phone, but Riley can't figure out how to answer the rotary and it stops ringing. Sabina comes and goes — he hears the locks, sees evidence of her (a magazine left behind, a coffee cup in the sink) but they don't overlap. He's a ghost in his father's apartment and so is she.
+
+The guitar case stays where he set it. Unopened. A small coffin by the door.
+
+
+
+HARD CUT TO:`,
+"scene-09.md":`INT. FLAT - LIVING ROOM - LATE AFTERNOON
+
+CLICK-CLICK-CLICK.
+
+The rapid-fire percussion of a video game controller.
+
+A BONG bubbles somewhere.
+
+Light — warm, golden, late afternoon — pours through the windows. The same light that's been pouring through them for days, ignored.
+
+Riley's eyes open. Slowly.
+
+He's on the couch. Same clothes he arrived in. Rank. Disoriented. The flat around him showing signs of minimal habitation — empty beer bottles on the table, a plate with crumbs, the TV on but muted. Where the fuck is he? What day is it?
+
+The clicking continues.
+
+He turns his head.
+
+SERENITY (17) sits on the floor in front of the Sputnik TV. Cross-legged. Barefoot. A gauzy dress pooling around her. Golden curls — actual golden, Robert Plant golden — cascading past her shoulders, catching the afternoon light like something from a painting that shouldn't exist in this Soviet apartment.
+
+She's playing MARIO KART. Leaning into the turns. A bong beside her, recently used, a thin ribbon of smoke still curling from the bowl.
+
+She doesn't look over.
+
+SERENITY
+There he is.
+
+Riley blinks. Tries to assemble reality from the available evidence.
+
+The TV: Mario Kart 64. Serenity is Toad. She's winning.
+
+The bong: glass, expensive, definitely not purchased locally.
+
+The flat: cleaner than he left it. Someone's opened the windows. Fresh air moving through. The empty bottles are gone.
+
+The girl: someone he knows. From where? Malibu. The industry. Their fathers know each other. She was at that pool party when they were eight. She's—
+
+SERENITY (CONT'D)
+(still not looking, navigating Rainbow Road)
+Marc said you might need rescuing.
+He wasn't wrong.
+
+She takes a hit from the bong without pausing the game. Exhales. Keeps playing.
+
+SERENITY (CONT'D)
+I brought food. And supplies. You're welcome.
+
+She nods toward the kitchen. Riley can just see, through the archway: bags. Lots of bags. Bottles, fruit, bread, things in packaging he can't read. More than a gesture. A full restocking.
+
+Riley sits up. His body protests everything.
+
+RILEY
+How did you get in?
+
+SERENITY
+Sabina.
+
+RILEY
+How long have you been here?
+
+SERENITY
+A while.
+(beat, still playing)
+Your guitar's broken, by the way. I looked.
+That sucks.
+
+Riley stares at her. This girl, this golden apparition, barefoot and cross-legged on the floor of a communist apartment in Prague, playing Nintendo on a TV that belongs in a museum, like she's been here forever. Like she belongs here. Like everywhere is hers.
+
+SERENITY (CONT'D)
+I hope you like Mario Kart.
+
+She holds up a second controller without looking. Waves it in his direction.
+
+SERENITY (CONT'D)
+Because I've been playing for two hours and I need competition.
+
+Riley takes the controller.
+
+He has no idea what's happening. But this is better than whatever came before.
+
+He sits on the floor beside her. She scoots over slightly. Their shoulders almost touching.
+
+SERENITY (CONT'D)
+I'm Toad. You can be whoever.
+Except Toad.
+
+RILEY
+I'm always Yoshi.
+
+SERENITY
+Then we won't have a problem.
+
+The game resets. The music begins — that bright, idiot-cheerful Mario Kart theme filling the Soviet apartment like a transmission from another universe.
+
+They play.
+
+Outside, Prague does whatever Prague does. The trams run. The light shifts. The city hums in a language Riley doesn't speak.
+
+But in here — the click of controllers. The bubble of the bong. The warmth of a girl who showed up.
+
+For the first time in forty hours, Riley exhales.
+
+FADE TO:
+
+---`,
+"scene-10.md":`EXT. PRAGUE - VINOHRADY / OLD TOWN - DAY
+
+Riley walks.
+
+No destination. No map — or rather, a map, hand-drawn by Marc on the back of a call sheet, but the streets don't correspond to the lines and Riley stopped consulting it two turns ago.
+
+Prague in daylight. Not the Prague of the night drive — alien, sodium-lit, threatening. This Prague is something else. Handsome, complicated, scarred. Art Nouveau façades with crumbling plasterwork. Cobblestones worn smooth by centuries of feet. Graffiti next to baroque doorways. A church spire rising above a tobacco shop.
+
+Everything old. Everything layered. Nothing like Malibu, where the oldest thing is a eucalyptus tree.
+
+A TRAM clatters past on its rails, bell clanging. Riley watches it go. Passengers pressed against the windows, looking bored. Looking like they belong somewhere.
+
+He passes a NEWSSTAND. Magazines in Czech. A few German papers. One lonely International Herald Tribune, already a day old.
+
+A BUTCHER SHOP with whole animals hanging in the window. Riley slows. Stares. Keeps walking.
+
+An OLD WOMAN on a bench feeding pigeons looks at him. Says something in Czech. He shakes his head, apologetic. She says it again, louder, as though volume will translate.
+
+He walks on.
+
+The air smells like bread and diesel and something sweet — linden trees, though he doesn't know that's what they are. Coffee from somewhere. Cigarette smoke from everywhere.
+
+He rounds a corner. A quiet street. Residential giving way to a few small shops.
+
+And something catches him. Not visually — sonically. Music, drifting from an open door.
+
+A RECORD STORE. Small. Wedged between a locksmith and a building with scaffolding. The kind of shop you'd walk past ten times before noticing. No English signage. Just a hand-painted name in Czech above the door and a few album covers taped in the window, sun-bleached.
+
+The music coming from inside — something Riley doesn't recognize. Not American, not British. Czech, maybe. Or Eastern European. Strings and a woman's voice doing something haunting and angular.
+
+Riley stops. Listens.
+
+This, at least, is a language he speaks.
+
+He goes in.
+
+---`,
+"scene-11.md":`INT. RECORD STORE - CONTINUOUS
+
+The bell above the door — an actual bell, not electronic — chimes as Riley enters.
+
+Dim. Cramped. Beautiful in the way that only a room stuffed with vinyl can be. Wooden bins overflowing with records. Band posters on every surface — some Czech acts Riley's never heard of, but also Velvet Underground, Nick Cave, Portishead. A handwritten sign in Czech near the register that probably says something about shoplifting.
+
+The music is louder in here. Coming from a turntable behind the counter — a proper turntable, not a CD player. The record spinning. The woman's voice filling the room.
+
+A CLERK sits behind the register. Male, twenties, bored, reading a music magazine. He glances up at Riley. Back down. The universal assessment of: tourist.
+
+And beside the counter, crouched in front of the lower bins, sorting vinyl with focused, practiced hands—
+
+TEREZA (17).
+
+Dark hair, not styled, just its own thing. Clothes that suggest secondhand without trying to. No makeup. She's working — pulling records from a crate, checking spines, filing them in the bins with a precision that suggests she knows exactly where every record in this store belongs.
+
+She doesn't look up when Riley enters.
+
+Riley browses. Or tries to. His fingers move across the records but his eyes keep drifting.
+
+It's the focus that gets him. He's never seen someone his age that absorbed in something that isn't a screen. She's listening to the music while she works — not nodding along, not performing enjoyment, but *in* it, the way you're in water. Her lips move slightly, just barely, with the lyrics.
+
+She seems to listen to frequencies others can't hear.
+
+Riley realizes he's staring. Looks down. Flips through a bin of records. Finds a section he recognizes — British imports. Radiohead. The Smiths. Joy Division.
+
+He pulls out a record. Studies it.
+
+Glances up again. Can't help it.
+
+Tereza is standing now. She's moved to the other side of the counter, reaching up to file something on a high shelf. Still not aware of him. Or completely aware of him and not caring. He can't tell which is worse.
+
+Riley turns to watch her and—
+
+His elbow catches his coffee cup, balanced on the edge of the bin.
+
+The cup goes. Coffee goes. Down the front of his shirt, across the floor, onto the base of the bin. A disaster in slow motion.
+
+RILEY
+(hissing, grabbing at the cup too late)
+Shit. Shit.
+
+He's on his knees, mopping at the floor with the single useless napkin from the cup. His shirt soaked. Coffee spreading.
+
+The Clerk looks up from his magazine. Sighs. Goes back to reading.
+
+Tereza appears. Not rushing. Just there. A roll of paper towels in her hand. She tears off several sheets, drops them on the puddle, pushes them around with her foot. Efficient.
+
+She doesn't crouch down to help him. She doesn't make eye contact. She just handles the spill the way you handle any small mess in your workplace — quickly, without ceremony.
+
+TEREZA
+(to the spill, not to Riley)
+It's fine.
+
+Her English is accented but clear. No warmth in it. No coldness either. Just: this is a thing that happened, I'm dealing with it, you can stop panicking.
+
+Riley stands. Shirt stained. Face burning.
+
+RILEY
+I'm sorry. I can—
+
+TEREZA
+It's fine.
+
+She drops the wet paper towels in a bin behind the counter. Tears off a few more clean sheets. Holds them out to him. For his shirt.
+
+Riley takes them. Their fingers don't touch.
+
+She's already turned away. Back to her crate. Back to sorting. The record on the turntable changes tracks — the same album, a new song, something quieter.
+
+Riley stands there. Dabbing at his shirt. He should leave. He should absolutely leave.
+
+He looks at the record in his hand — the one he pulled before the catastrophe. He doesn't even remember what it is. He takes it to the counter.
+
+The Clerk rings it up. Says a number in Czech. Riley fumbles with the unfamiliar coins, puts too many on the counter. The Clerk takes what's owed, pushes the rest back.
+
+Riley pockets the change. Takes the record. Moves toward the door.
+
+At the door, he glances back.
+
+Tereza is filing a record. She slides it into its place. Moves to the next one. The music plays. The dust hangs in the light from the window.
+
+She doesn't look up.
+
+The bell chimes. The door closes behind him.
+
+Riley stands on the cobblestones. Coffee-stained. Holding a record he didn't choose on purpose. Heart doing something he isn't ready to name.
+
+FADE TO:
+
+---`,
+"scene-12.md":`INT. PRODUCTION OFFICE - DAY
+
+Chaos. Organized chaos, technically, but the organization is losing.
+
+A converted ground-floor flat repurposed as a production hub. Desks buried under paper — call sheets, shooting schedules, location photos. A FAX MACHINE churns in the corner. PHONES ring. Czech and English overlap. Three or four CREW MEMBERS in various states of focused panic.
+
+A wall covered in index cards — the shooting schedule, color-coded, half of it already rearranged with arrows and question marks. A map of Prague with locations circled in red marker. Headshots pinned to a corkboard.
+
+Marc is in the center of it, Nokia pressed to his ear, gesturing with his free hand at a CZECH PRODUCTION ASSISTANT who's holding a stack of papers and looking overwhelmed.
+
+MARC
+(into phone)
+No, the SECOND location. The church. Not the—
+(to the PA)
+— tell her we need the permit by Thursday or—
+(into phone)
+— right, exactly, the one with the scaffolding—
+(to the PA)
+— and the generator, did we sort the generator?
+
+Riley stands in the doorway. Duffel bag over one shoulder. He's come here because he has nowhere else to go and Marc is the only person in this city who knows his name.
+
+Marc spots him. Holds up one finger — *give me a second* — which turns into five minutes.
+
+Riley drifts. Takes in the room. The pinball machine in the breakroom — some Eastern Bloc relic with Cyrillic text and faded Communist imagery. He gives it a nudge. It makes a sad electronic sound.
+
+A poster on the wall for what appears to be his father's film. Czech title. English subtitle. His father's name in the credits. PRODUCED BY.
+
+Riley stares at it. His father's name, printed and real, on a wall in Prague. The man himself in Berlin.
+
+Marc finishes his call. Crosses to Riley.
+
+MARC
+Hey! There he is!
+Welcome to the nerve center.
+The nerve center is a mess.
+Ignore the mess.
+(looking Riley over)
+What happened to your shirt?
+
+RILEY
+Coffee.
+
+MARC
+Classic.
+(already moving on, leading Riley through the space)
+So, this is base camp. Production office. War room. Whatever you want to call it.
+Your dad's office is through there but he's not — well, you know. Berlin.
+That's the reading room, that's the breakroom, that's the bathroom — don't use the bathroom if you can help it, the plumbing situation is, uh, Czech.
+
+They pass through the breakroom. In the corner, behind a filing cabinet, leaning against the wall — a GUITAR. Acoustic. A little dusty. Good make, though. Visible even under the dust.
+
+Riley sees it. Stops.
+
+RILEY
+Whose guitar is that?
+
+Marc glances at it. Something flickers across his face — embarrassment, memory, dismissal. All in a half-second.
+
+MARC
+That's — nobody's.
+Mine, technically.
+Long story.
+(beat)
+Actually, short story. I bought it to impress a girl. Czech girl. Thought I'd learn to play. Serenade her on Charles Bridge or whatever.
+
+RILEY
+Did it work?
+
+MARC
+I never learned a single chord.
+She's engaged to a dentist now.
+(shrugging)
+Life in Prague.
+
+Riley reaches for it. Picks it up. Turns it over. It's a decent instrument — better than decent, actually. A Czech-made acoustic with nice action, just neglected.
+
+He brushes the dust off. Holds it properly. His fingers find the strings instinctively, muscle memory from years of playing, and he strums once. The sound fills the breakroom.
+
+Not bad. Needs tuning. But not bad.
+
+Marc watches him. And something clicks behind Marc's eyes — a practical solution to two problems at once.
+
+MARC
+Take it.
+
+RILEY
+What?
+
+MARC
+Take the guitar. It's yours.
+Your ticket to sanity in this city.
+(checking his watch)
+Actually — there's a park. Two blocks north. Riegrovy Sady. You can't miss it.
+Well, you can, because you're you. But it's there.
+Beautiful spot. Lots of trees. A beer garden.
+Go play. Get some air. Find your center. Whatever kids do.
+
+He's steering Riley toward the door now. Gently but unmistakably.
+
+MARC (CONT'D)
+(lower, honest for a moment)
+Look, I'd love to hang out, but we're drowning here. Locations are a nightmare, the Arri's still not cleared, your dad's sending faxes from Berlin that just say things like "MAKE IT WORK" in all caps—
+
+His Nokia RINGS. He glances at it.
+
+MARC (CONT'D)
+— and that's probably him right now.
+Go. Play. The park's great. I'll come find you later.
+
+Riley stands in the doorway. Guitar in hand. His father's film being assembled around him by people who have purpose.
+
+RILEY
+Marc.
+
+MARC
+(already answering the phone)
+Yeah?
+
+RILEY
+Thanks.
+
+Marc waves him off — *go, go* — and turns away, already talking, already somewhere else.
+
+Riley steps outside. Guitar in hand. The sun on his face.
+
+For the first time since he arrived, he has something to do. Somewhere to go. An instrument that works.
+
+He walks north. Looking for the park.
+
+FADE TO:
+
+---`,
+"scene-16.md":`EXT. RIEGROVY SADY PARK - DAY
+
+Riley plays. Eyes closed. Lost in it.
+
+"Fake Plastic Trees" — that descending progression, the Jonny Greenwood shimmer, the melancholy he can't quite articulate but can channel through his fingers.
+
+He's been coming here for days now. Same bench. Same time. The guitar Marc gave him — the failed-romance guitar — is starting to feel like his. He's tuned it properly. Learned its voice.
+
+The park fades. Madison fades. Prague fades.
+
+Just the guitar and the muscle memory and the song.
+
+Then — a sharp FINGER WHISTLE.
+
+Riley's eyes snap open.
+
+DIMITRI (18) stands a few feet away. Cigarette dangling from his lips, hands free. Denim jacket, long metal-band hair — an 80s hangover he carries with conviction. A small NOKIA cell phone clipped to his belt. A LEATHERMAN multi-tool in a leather sheath on the other hip.
+
+He starts SLOW CLAPPING.
+
+DIMITRI
+Charge it, man!
+
+Behind him, half-hidden by a tree: TEREZA (17). Watching. Hands in her pockets.
+
+Riley's hands freeze on the strings.
+
+DIMITRI (CONT'D)
+Very premium.
+You are play good.
+Not good like Lester Carmichael, but maybe getting there someday.
+
+Beat. Riley has no idea how to respond to this.
+
+DIMITRI (CONT'D)
+I am Dimitri and this is sister my Tereza.
+
+Tereza steps forward slightly. Doesn't sit. Barely nods.
+
+TEREZA
+(quieter, careful English)
+Hello.
+
+Riley looks at her. Something clicks. The record store. The paper towels. "It's fine." She's the girl from the—
+
+RILEY
+Hi.
+
+If she recognizes him, she doesn't show it.
+
+RILEY (CONT'D)
+Who's Lester Carmichael?
+
+DIMITRI
+(shocked, cigarette nearly falling)
+Who is—?
+Lester Carmichael!
+From Colonel Murder!
+
+RILEY
+I've never heard of—
+
+DIMITRI
+(genuinely offended)
+He is from America Milwaukee!
+You don't know your own guitar heroes?
+
+He walks closer. Sits on the bench without being invited. Takes the cigarette from his mouth.
+
+He starts HUMMING — approximating a melody. Then AIR-DRUMMING on his thighs while making guitar solo sounds with his mouth.
+
+DIMITRI (CONT'D)
+Duh-nuh-nuh-nuh-NAH
+*weedley-weedley-wee*
+BWAAAAH
+*duh-duh-duh-DUH*
+
+He's fully committed. Eyes closed. Feeling it.
+
+Riley looks at Tereza. She's examining her nails. Or the tree. Or something that isn't this.
+
+Dimitri finishes with a flourish. Opens his eyes. Looks at Riley expectantly.
+
+RILEY
+I... don't know that.
+
+DIMITRI
+(shaking his head, disappointed)
+Are you sure you're not from Canada?
+
+TEREZA
+(quietly, almost amused)
+Dimitri...
+
+DIMITRI
+(waving her off)
+What? Is famous song.
+
+He pulls out a joint. Lights it with the ember of his cigarette.
+
+DIMITRI (CONT'D)
+You are new here.
+
+RILEY
+How can you tell?
+
+DIMITRI
+(gesturing at everything about Riley)
+Everything.
+The guitar case — too expensive.
+The shoes — American.
+The face — like a baby deer who doesn't know the wolves yet.
+
+He takes a drag. Passes the joint to Riley. Riley takes it automatically.
+
+DIMITRI (CONT'D)
+What are you doing in Praha?
+
+RILEY
+My dad's making a movie.
+
+DIMITRI
+Ah. Film people.
+(to Tereza, in Czech)
+[Film people.]
+
+Tereza's expression doesn't change. But something flickers.
+
+The Nokia on Dimitri's belt RINGS. Loud, insistent.
+
+DIMITRI (CONT'D)
+(unclipping it)
+Promiň—
+
+He answers. Immediately launches into rapid CZECH. Stands. Walks a few paces away. Shouting now. Animated gestures. Something about "dvacet procent" and "zítra."
+
+Riley and Tereza sit in sudden silence.
+
+She's examining her nails. Or the tree. Or something that isn't him.
+
+Riley tries to think of something to say.
+
+RILEY
+Do you... live near here?
+
+TEREZA
+(still not looking at him)
+Not close.
+
+RILEY
+Oh.
+
+More silence. The joint smoldering between Riley's fingers.
+
+Dimitri's still shouting into the phone. Laughing now. Some deal being made.
+
+RILEY (CONT'D)
+I think I saw you. At a record store.
+
+TEREZA
+Maybe.
+
+She finally looks at Riley. Really looks.
+
+TEREZA (CONT'D)
+You play well.
+Better than he said.
+
+Before Riley can figure out what that means — they've been watching him, she's heard him play before, she told Dimitri about him — Dimitri returns. Snaps the Nokia shut. Clips it back to his belt.
+
+DIMITRI
+Sorry, sorry.
+Business.
+(grinning, to Riley)
+Listen, American.
+(looks around conspiratorially)
+Do you like to have...
+(mimes smoking a joint, whispers)
+...the "maryjane"?
+
+Riley laughs despite himself.
+
+RILEY
+Yeah. I do.
+
+DIMITRI
+Bonsai!
+(clapping his hands)
+Come on.
+You want I show you something premium?
+
+He's already walking. Tereza follows without hesitation.
+
+Riley sits there a moment. The joint still in his hand. Then stands. Grabs the guitar case.
+
+RILEY
+Wait! I need to drop this off!
+
+Dimitri doesn't turn. Just keeps walking. Hand raised in acknowledgment.
+
+FADE TO:
+
+---`,
+"scene-17.md":`EXT. RESIDENTIAL NEIGHBORHOOD - NARROW PATH BETWEEN HOUSES - DAY
+
+Riley, Dimitri, and Tereza creep single file along a narrow concrete channel between two houses. Raised walls on both sides — maybe four feet high. Overgrown weeds sprouting from cracks. Laundry hanging above.
+
+No guitar case.
+
+Dimitri leads. Moving with exaggerated military precision — hand signals, pausing to listen, checking corners. The full army-ranger treatment for what is about to be the theft of a single marijuana plant.
+
+Tereza in the middle. Bored. Examining her nails as she walks.
+
+Riley at the back. Heart pounding. No idea what they're doing or where they are.
+
+DIMITRI
+(whispering back)
+Quiet now.
+Uncle is inside.
+
+RILEY
+(whispering)
+Your uncle?
+
+DIMITRI
+Shh.
+
+They stop at a section where the concrete wall meets a raised PATIO — maybe four feet up. Chain-link fence visible beyond. Vegetable garden.
+
+Dimitri scales the wall easily. Pulls himself up onto the patio.
+
+Tereza follows with practiced grace. Sits on the edge of the patio, legs dangling into the channel below. Utterly unconcerned.
+
+Riley hesitates. Then scrambles up after them, less gracefully.
+
+On the patio. Dimitri crouches. Points.
+
+There — in a large terracotta pot near the fence, partially hidden by tomato plants — a scraggly MARIJUANA PLANT. Maybe two feet tall.
+
+Dimitri grins. Pulls the LEATHERMAN from his belt. Opens it with a satisfying *click*.
+
+Riley crouches beside Tereza while Dimitri moves toward the plant with the surgical precision of a biology postgrad collecting a delicate specimen.
+
+RILEY
+(whispering, to Tereza)
+Does he do this a lot?
+
+TEREZA
+Unfortunately.
+
+RILEY
+It's nice out here.
+Is this where you guys live?
+
+TEREZA
+Really? I've always hated it here.
+No, we live further out. In the "country." Near the woods.
+
+Dimitri selects a nice leafy stem. Positions the Leatherman.
+
+SNIPS. Clean cut. He holds it up like a trophy.
+
+DIMITRI
+(grinning)
+Charge it, man!
+Grade-A maryjane.
+Fresh from harvest.
+Premium bonsai.
+
+TEREZA
+You told him we would be smoking it.
+
+DIMITRI
+Well, sure, that comes later.
+We should dry and everything else.
+But the process has started.
+
+RILEY
+That's cool.
+I'm good.
+
+Just then — THWACK. The signature creak and slap of a screen door opening and closing.
+
+---`,
+"scene-18.md":`UNCLE (O.S.)
+(shouting in Czech)
+[Is that you, Dimitri? You little cocksucker!]
+
+Heavy footsteps on the patio.
+
+DIMITRI
+(still grinning)
+Go, go, GO!
+
+Tereza drops down into the channel first. Lands gracefully.
+
+Dimitri shoves Riley toward the edge. Riley drops. Stumbles. Catches himself.
+
+Dimitri jumps down after them. Lands in a crouch.
+
+The back door BURSTS open.
+
+UNCLE — 50s, undershirt, furious — emerges onto the patio with a SHOTGUN.
+
+He scans the patio. Sees the cut stem. ROARS in Czech.
+
+The three of them press against the concrete wall of the channel. Frozen. Hearts pounding. The Uncle's feet visible above them — inches away.
+
+More cursing in Czech. The distinct sound of the shotgun being PUMPED.
+
+Tereza looks at Dimitri. Raises an eyebrow. *Really?*
+
+Dimitri grins. Still clutching the marijuana stem.
+
+Uncle's footsteps move to the edge of the patio. He's looking over.
+
+DIMITRI
+(mouthing silently)
+Run.
+
+They BOLT down the narrow channel.
+
+A SHOTGUN BLAST echoes behind them.
+
+UNCLE (O.S.)
+(shouting after them in Czech)
+[I know it's you, Dimitri! I'm calling your mother!]
+
+They run. Through the channel, out into a side street, across a road — a car HONKS — down another street, around a corner, Dimitri laughing, Riley terrified, Tereza moving with the ease of someone who's done this exact route before.
+
+---`,
+"scene-19.md":`EXT. METRO STATION ENTRANCE - DAY
+
+They burst out of a side street. Stop. Huffing and puffing.
+
+Wait.
+
+Silence. Except for their breathing and distant tram bells.
+
+No Uncle. No shotgun. No sirens.
+
+The Jurassic Park silence. That moment where Lex and Timmy find the buffet and just start eating. The silence of survival.
+
+Dimitri starts LAUGHING. Big, uncontrolled laughs.
+
+DIMITRI
+Supernova! You see his face?
+
+TEREZA
+(completely calm, fixing her hair)
+He wasn't going to shoot.
+
+RILEY
+(still catching his breath)
+How do you know?
+
+TEREZA
+He never shoots.
+Just yells.
+
+RILEY
+He had a SHOTGUN.
+
+DIMITRI
+(waving this off)
+Is for show.
+He shoot once at pigeons. Miss everything.
+
+He holds up the marijuana stem. Examines it in the light.
+
+DIMITRI (CONT'D)
+Beautiful. Premium quality.
+My uncle, he grow professional.
+
+TEREZA
+Your uncle grows garbage.
+
+DIMITRI
+(ignoring her, to Riley)
+You come for dinner, yes?
+Genuine Czech cuisine.
+
+RILEY
+Yeah? What do you usually eat?
+
+TEREZA
+(deadpan)
+Spaghetti covered in ketchup.
+
+DIMITRI
+(defensive)
+Is traditional!
+
+RILEY
+I... I can't actually.
+I'm supposed to meet someone from home.
+
+DIMITRI
+Ah. Film people dinner.
+Very fancy, I'm sure.
+
+Beat.
+
+RILEY
+Rain check?
+
+Dimitri stops. Stares at him.
+
+DIMITRI
+Rain check?
+What is rain check?
+
+TEREZA
+(to Dimitri, in English)
+It means later. Another time.
+
+DIMITRI
+(to Tereza, in Czech)
+[Do prdele. English is a fucking stupid language, no?]
+(back to English, nodding)
+OK, American. Rain check it is.
+
+He grins. Something already forming behind his eyes.
+
+DIMITRI (CONT'D)
+(to Tereza, in Czech)
+[Rain check. Like... Rain Czechs.]
+
+TEREZA
+(not amused)
+(Czech) [Don't.]
+
+DIMITRI
+(delighted with himself, to Riley)
+We are Rain Czechs now!
+You and me and Tereza!
+Rain Czechs!
+
+Tereza closes her eyes. The patience of a sister.
+
+Dimitri claps Riley on the shoulder. Hard.
+
+DIMITRI (CONT'D)
+See you in park, American.
+Bring the guitar.
+We will discuss Lester Carmichael.
+
+He starts walking. Already texting on the Nokia.
+
+Tereza follows. Doesn't look back.
+
+TEREZA
+(over her shoulder, almost an afterthought)
+Bye, Riley.
+
+It's the first time she's said his name. He didn't even know she knew it.
+
+They walk away in the opposite direction from the Metro entrance. Toward something. Their life, somewhere, wherever it is.
+
+Riley stands there.
+
+Alone.
+
+He looks around. The Metro station. A street he doesn't recognize. The sun lower now than when this all started.
+
+RILEY
+(to no one)
+How do I get home?
+
+He reaches into his pocket. Pulls out Marc's hand-drawn map. The useless one.
+
+Unfolds it. Studies it. Turns it upside down. Turns it back.
+
+Starts walking.
+
+FADE TO:
+
+---`,
+"scene-20.md":`INT. SERENITY'S DORM ROOM - EVENING
+
+Riley knocks.
+
+SERENITY (O.S.)
+Come in!
+
+Riley enters.
+
+The room is a Leo's lair - tapestries, paisley scarves, vintage dresses draped everywhere. Incense smoke curling. A bong on the windowsill. Photographs tacked to walls.
+
+An oriental changing screen cordons off one corner. Behind it - movement, lamplight, Serenity's silhouette.
+
+SERENITY (CONT'D)
+(from behind the screen)
+Make yourself at home.
+
+Riley glances around. Every surface covered. Nowhere to sit that isn't buried in fabric.
+
+He stands awkwardly. Picks up a small ceramic figurine from a shelf. It slips through his fingers. He catches it. Barely.
+
+Sets it down carefully.
+
+SERENITY (CONT'D)
+You can sit on the bed if you want.
+
+RILEY
+I'm good.
+
+He moves to a wall covered in photographs. Studies them. Serenity at various ages. Serenity with friends. A photo of much younger Serenity and Riley at a pool party - she's maybe eight, gap-toothed, holding a pool noodle.
+
+Behind the screen - rustling fabric. A zipper.
+
+Riley looks back at the photos. Tries to focus.
+
+Movement in his peripheral vision.
+
+Serenity steps out from behind the screen. Short dress. Barefoot. Golden curls loose.
+
+She does a small turn.
+
+SERENITY
+How's this?
+
+Riley's throat goes dry.
+
+RILEY
+It's... yeah. Good.
+
+SERENITY
+(studying herself in a mirror on the wall)
+I think we can do better.
+
+She walks back toward the screen. Riley exhales.
+
+As she steps behind it, the dress comes OFF. Just drops. Pools at her feet on the floor, visible beneath the screen's gap.
+
+Riley freezes.
+
+He hears fabric moving. Hangers scraping. She's going through options.
+
+He looks at the photos again. Harder this time. Concentrating.
+
+But the gaps in the screen panels - he can SEE through them. Not silhouettes. Actual glimpses. Her bare back. The curve of her breast as she lifts her arms. Her ass as she bends to pick something up.
+
+She's not hiding. But she's not performing either. She just... is.
+
+Riley picks up another object. A vintage perfume bottle. Sets it down. Picks up a book. Doesn't read it. Sets it down.
+
+SERENITY (CONT'D)
+(from behind the screen)
+Do you remember when we stayed at that house in Aspen with the human-sized cat condo?
+
+RILEY
+(voice tight)
+That was amazing.
+Like the seventies threw up a ski chalet.
+
+Another glimpse through the gap - she's pulling a dress over her head. He sees everything for a second. Looks away. Back at the photos.
+
+SERENITY
+(laughing)
+Yeah, but it was so fun sleeping in those cubbies.
+
+RILEY
+If you're cool with small, dark spaces.
+
+SERENITY
+You and Brandon were making fun of me for starting to grow boobs.
+
+Riley shifts his weight. Clears his throat.
+
+RILEY
+Only one of us came out of that one not looking like losers.
+
+SERENITY
+(quieter now)
+Anyway, my point is, it was fun.
+You can't do things like that anymore.
+
+RILEY
+You mean because of the house?
+I bet it still rents.
+
+SERENITY
+No, I mean because we're older now.
+You can't go back.
+Can't put the toothpaste back inside the tube.
+
+Beat. Riley staring hard at a photo of nothing in particular.
+
+SERENITY (CONT'D)
+I just wish I could go back sometimes.
+Pay attention more.
+
+RILEY
+Yeah.
+
+Silence. Just the rustle of fabric.
+
+Riley chances a glance. Through the gap - she's adjusting something. Full frontal for a moment. He looks away fast. Heart pounding.
+
+SERENITY
+(suddenly bright)
+Okay. This one.
+
+She emerges. Different outfit - simpler somehow. Hair slightly tousled. Leather jacket over one arm.
+
+SERENITY (CONT'D)
+How's this?
+
+RILEY
+(throat catching)
+Incredible.
+
+SERENITY
+Better?
+
+RILEY
+Yeah.
+
+She crosses to him. Turns around. Presents her back.
+
+SERENITY
+Zip me?
+
+RILEY
+What?
+
+SERENITY
+The back.
+I can't reach.
+
+Riley steps closer. Finds the zipper at the small of her back. His hands are shaking slightly. He pulls it up. Slowly. The sound loud in the quiet room.
+
+SERENITY (CONT'D)
+Thanks.
+
+She turns. Puts her arms around his neck. Looks up at him.
+
+SERENITY (CONT'D)
+I'm so glad you came, Riley.
+Your dad mentioned you were on the fence.
+I think you made the right choice.
+
+Riley can't speak. She's close. Her perfume. Her eyes that specific blue.
+
+She releases him. Steps back. Grabs her jacket.
+
+SERENITY (CONT'D)
+Ready?
+
+RILEY
+Yeah.
+
+SERENITY
+Good.
+
+She loops her arm through his. Natural. Easy. Like she does this with everyone.
+
+SERENITY (CONT'D)
+Let's go see what kind of mess Marc's made of things.
+
+They head for the door.
+
+Riley glances back once at the room. The screen. The dress still on the floor.
+
+Then follows her out.
+
+FADE TO:`,
+"scene-21.md":`INT. TAXI - MOVING - NIGHT
+
+Riley sits in the back seat. Serenity beside him.
+
+The taxi pulls to a curb. ERIN emerges from a building - Black-Canadian, sharp, elegant. Different energy than the beer garden. She's DRESSED for the night.
+
+She opens the door. Slides in.
+
+Riley's now sandwiched between them. Two beautiful women. He tries not to think about it.
+
+ERIN
+(to Serenity)
+You look amazing.
+
+SERENITY
+So do you.
+
+They kiss on both cheeks. European style.
+
+ERIN
+(to Riley)
+Riley.
+
+RILEY
+Hey.
+
+The taxi pulls away. Erin reaches into her bag. Produces three small TABLETS. Holds them out.
+
+ERIN
+For tonight.
+
+RILEY
+What's this?
+
+SERENITY
+Don't worry about it.
+
+Riley looks at the tablet in his palm.
+
+ERIN
+(smiling)
+Trust us.
+
+Riley shrugs. Swallows it dry.
+
+Serenity and Erin do the same. No ceremony. Just routine.
+
+The taxi weaves through Prague streets. Streetlights streaking past.
+
+---`,
+"scene-22.md":`INT. JO'S BAR - NIGHT
+
+Dark wood. Low ceilings. Cigarette smoke thick. Expat energy - Americans, Canadians, Brits, a few Czechs. Everyone drinking, talking too loud.
+
+Riley enters with Serenity and Erin.
+
+MARC at the bar, already two drinks deep. Edgy. Checking his Nokia. Puts it away. Takes it out again.
+
+THE ACTOR and THE ACTRESS at a table with some crew members.
+
+Serenity leads the way over. Introductions. Handshakes. Cheek kisses.
+
+ERIN
+(to the Actor, genuine)
+I have to say, I loved you on Misgivings.
+I was devastated when they killed you off.
+
+THE ACTOR
+(laughing, slightly embarrassed)
+You watched that?
+
+ERIN
+Every episode.
+The coma storyline was brilliant.
+
+THE ACTRESS
+(amused)
+He won't admit it, but he's very proud of that coma.
+
+Everyone laughs. The Actor shrugs, grinning.
+
+Riley sits. Drinks arrive. He takes a sip of beer.
+
+And then - it hits.
+
+Not all at once. Gradual. Like warmth spreading from his chest outward.
+
+The room gets SOFTER. The edges blur. Sounds become textures.
+
+He looks at Serenity.
+
+She's glowing. Literally glowing. Her golden hair catching every bit of light. Her laugh - he can SEE it, feel it, taste it.
+
+She turns. Catches him staring. Smiles.
+
+That smile could end wars.
+
+SERENITY
+(leaning close, her voice honey)
+You okay?
+
+RILEY
+(nodding, can't speak)
+Yeah.
+
+ERIN
+(to Serenity, knowing)
+He's rolling.
+
+SERENITY
+(grinning)
+Good.
+
+Marc appears. Agitated.
+
+MARC
+We need to talk about the Arri.
+The Czechs are sayingâ€”
+
+SERENITY
+(cutting him off, gentle but firm)
+Marc. Not tonight.
+
+Marc blinks. Looks around the table. Everyone relaxed, laughing, glowing.
+
+He's on a different frequency.
+
+MARC
+Right. Yeah. Tomorrow.
+
+He retreats back to the bar. Back to his Nokia.
+
+THE ACTOR
+(to Riley)
+You good, man?
+
+RILEY
+(grinning stupidly)
+I'm supernova.
+
+Everyone laughs. Riley doesn't know why that's funny but it is. Everything's funny. Everything's beautiful.
+
+Serenity stands. Extends her hand to Riley.
+
+SERENITY
+Come on.
+Let's go somewhere better.
+
+---`,
+"scene-23.md":`INT. RADOST FX CLUB - NIGHT
+
+ðŸŽµ **Electronic music - 90s trance, deep and pulsing** ðŸŽµ
+
+STROBES. BODIES. HEAT. SOUND.
+
+Riley's in the middle of it. Serenity beside him. Erin nearby. They're not dancing so much as EXISTING in the music.
+
+Everything is textures. The beat in his chest. Sweat on his skin. Serenity's hand in his.
+
+She spins. Her hair a golden arc. A goddess. A sun. The center of everything.
+
+Riley tries to speak but words don't work anymore. Just feeling.
+
+Erin appears. Hands them water. They drink. It's the best water that's ever existed.
+
+Time doesn't work right. Could be minutes. Could be hours.
+
+Serenity leans close. Her lips near his ear.
+
+SERENITY
+(shouting over music)
+I'm so glad you're here!
+
+Riley nods. Tries to say "me too" but it comes out as just sound.
+
+She hugs him. Tight. Warm. Safe.
+
+He's never felt more alive and more dissolved at once.
+
+The music builds. Peaks. Everyone's hands in the air.
+
+Riley's in it. Part of it. One cell in a massive organism of sound and light and chemical euphoria.
+
+ðŸŽµ **Music swells, then fades** ðŸŽµ
+
+---`,
+"scene-24.md":`EXT. CHARLES BRIDGE - DAWN
+
+The three of them walking. Arms linked. Erin in the middle now.
+
+The sky that impossible pre-sunrise blue. The river below catching first light.
+
+Their footsteps echo on the ancient stones.
+
+ERIN
+(Dorothy voice, theatrical)
+There's no place like home.
+
+SERENITY
+(Lion voice, mock-brave)
+I do believe in spooks, I do believe in spooks!
+
+They both look at Riley.
+
+RILEY
+(still rolling but coming down)
+What?
+
+ERIN
+You're Toto.
+
+RILEY
+I'm a dog?
+
+SERENITY
+The best dog.
+
+They walk. The comedown gentle. Soft. Everything still glowing but fading.
+
+Statues line the bridge. Saints and martyrs. Watching them pass.
+
+ERIN
+My place is close.
+
+They follow her.
+
+---`,
+"scene-25.md":`INT. ERIN'S LOFT - DAWN
+
+MASSIVE. Converted industrial space. High ceilings. Exposed brick. Windows letting in that early light.
+
+Minimal furniture. Art on walls. A kitchen partition in one corner.
+
+They collapse inside. Exhausted. Wired. Can't quite settle.
+
+ERIN
+(grinning mischievously)
+Pillow fight?
+
+SERENITY
+What are we, twelve?
+
+ERIN
+(already grabbing a pillow)
+Yes.
+
+She swings. Hits Serenity. Feathers EXPLODE.
+
+SERENITY
+(laughing)
+Oh, it's ON.
+
+Chaos. Pillows flying. Feathers everywhere. Laughter echoing in the huge space.
+
+Riley tries to participate but mostly just gets hit. Doesn't care. It's perfect.
+
+Finally they collapse. Breathing hard. Feathers settling like snow.
+
+RILEY
+(finding the couch)
+I need to lie down.
+
+SERENITY
+Good idea.
+
+She and Erin disappear into another room. Their voices fading. Giggling.
+
+Riley on the couch. Feathers in his hair. Body humming. Brain slowing down.
+
+Sleep takes him.
+
+---
+
+---
+
+INT. ERIN'S LOFT - MORNING
+
+Riley wakes slowly. Disoriented.
+
+Bright sunlight through the windows. His mouth dry. Body heavy.
+
+Someone's in the kitchen partition. A MAN Riley doesn't know. Early 20s. Making coffee in a French press.
+
+The man notices Riley stirring. Nods.
+
+STRANGER
+DobrÃ© rÃ¡no.
+
+Riley blinks.
+
+RILEY
+(croaking)
+...morning.
+
+The smell of coffee. Voices from the other room - Serenity and Erin, quiet conversation.
+
+Riley sits up. Feathers still scattered everywhere.
+
+What the fuck happened last night?
+
+Everything's hazy. Beautiful. Distant.
+
+Like a dream he's already forgetting.
+
+FADE TO:
+
+---`,
+"scene-28.md":`INT. FLAT - BATHROOM - DAY
+
+Riley stands under the showerhead. Water running. Steam building.
+
+He's still coming down. Body exhausted. Mind racing. Fragments of last night - Serenity's face in the strobe lights, Erin's laugh, feathers everywhere.
+
+His hand moves. Eyes closed. Thinking about... everything. The dress falling. The zipper. Her arms around his neck.
+
+The BATHROOM DOOR opens.
+
+SABINA walks in. Headphones on. Magazine in hand. Blowing a bubble with her gum.
+
+She doesn't knock. Doesn't hesitate. Just walks to the sink.
+
+Riley FREEZES. Covers himself. 
+
+RILEY
+What theâ€”
+
+Sabina glances at him in the mirror. No reaction. Just pops her gum.
+
+She sets down her magazine. Starts applying lipstick.
+
+RILEY (CONT'D)
+Can youâ€”
+I'm in here!
+
+SABINA
+(still applying lipstick, bored)
+I see.
+
+She takes her time. Checks her teeth. Adjusts her hair.
+
+Riley stands there. Water still running. Completely frozen.
+
+SABINA (CONT'D)
+You should turn off water.
+Wasting.
+
+She picks up her magazine. Walks out. Door stays open.
+
+Riley stands under the water. Face burning. Heart pounding.
+
+What the fuck just happened?
+
+---
+
+INT. FLAT - LIVING ROOM - CONTINUOUS
+
+Riley emerges from the bathroom. Towel around his waist. Hair dripping.
+
+Sabina sits on the couch. Still reading her magazine. Headphones now around her neck.
+
+Riley tries to walk past quickly. Get to his room. Disappear.
+
+SABINA
+(not looking up)
+Riley.
+
+He stops.
+
+SABINA (CONT'D)
+Your father says I should give you this.
+
+She reaches into her bag. Pulls out two envelopes. Holds them out.
+
+Riley approaches cautiously. Takes them.
+
+RILEY
+What is it?
+
+SABINA
+Karlovy Vary.
+Film festival.
+One week.
+Hotel, passes, everything.
+
+She goes back to her magazine.
+
+RILEY
+When?
+
+SABINA
+Next week.
+You and Serenity.
+Your father will meet you there.
+
+She turns a page.
+
+SABINA (CONT'D)
+He says bring nice clothes.
+There are parties.
+
+RILEY
+He's actually... coming?
+
+SABINA
+(shrugging)
+He says.
+
+She blows another bubble. It pops.
+
+SABINA (CONT'D)
+The tickets are in the envelope.
+Don't lose them.
+
+Riley stands there. Still dripping. Holding the envelopes.
+
+SABINA (CONT'D)
+(finally looking up)
+You can go now.
+
+Riley retreats to his room.
+
+Behind him, Sabina goes back to her magazine.
+
+Like nothing happened.
+
+FADE TO:
+
+---`,
+"scene-alley.md":`INT. PRODUCTION OFFICE - BREAKROOM AREA - LATE AFTERNOON
+
+Riley stands at a vintage PINBALL MACHINE - some Eastern Bloc relic with Cyrillic text and faded Communist imagery. Flippers barely work. Ball gets stuck constantly.
+
+He's playing anyway. Hitting it. Jiggling it. The machine making sad electronic sounds.
+
+THE ACTOR appears in the doorway. Glances back down the hall. Then approaches casually.
+
+THE ACTOR
+That thing work?
+
+RILEY
+(not looking up, focused on unsticking the ball)
+Barely.
+
+THE ACTOR
+Figures.
+
+Beat. The Actor watches Riley play. The ball finally unsticks, rolls weakly down.
+
+THE ACTOR (CONT'D)
+So. Question.
+
+RILEY
+Yeah?
+
+THE ACTOR
+You got any weed?
+
+Riley looks up. The Actor has that specific "I know you do" smile.
+
+RILEY
+Maybe.
+
+THE ACTOR
+Cool.
+Wanna smoke?
+
+---
+
+EXT. ALLEY - LATE AFTERNOON
+
+Narrow. Dumpsters. Graffiti. The smell of old beer and cigarettes. Prague sounds distant - trams, voices, traffic.
+
+Riley and the Actor lean against the brick wall. Passing a joint back and forth.
+
+THE ACTOR
+God, I missed California weed.
+Hash just isn't it.
+(takes a hit)
+...fine, but it's not the same.
+Where'd you even get this?
+
+RILEY
+I brought it with me.
+
+THE ACTOR
+Look at you, you little international drug smuggler, you.
+Shaving cream can?
+
+RILEY
+Yeah.
+
+THE ACTOR
+So, Marc says you're from Malibu?
+What's that like?
+
+RILEY
+Good, I guess?
+
+THE ACTOR
+Good? Just good?
+You ever been to The Valley?
+You hit the jackpot amigo.
+
+RILEY
+Where do you live?
+
+THE ACTOR
+Venice.
+Dudley Court right off of Rose.
+
+RILEY
+I love Venice.
+
+THE ACTOR
+Yeah, but it's getting too crowded.
+
+Beat.
+
+THE ACTOR (CONT'D)
+You miss it?
+
+RILEY
+I don't know.
+Do you?
+
+THE ACTOR
+Every fucking day.
+
+He laughs. Passes the joint.
+
+THE ACTOR (CONT'D)
+Like, Prague's beautiful.
+Everyone says it's beautiful.
+And it is.
+But it's also...
+
+RILEY
+Not home.
+
+THE ACTOR
+Yeah.
+Exactly.
+
+Silence. They smoke. A tram bell CLANGS somewhere.
+
+THE ACTOR (CONT'D)
+How long you here for?
+
+RILEY
+Summer.
+You?
+
+THE ACTOR
+Another month.
+Maybe six weeks.
+(beat)
+I met your dad back in L.A. last winter.
+Cool guy.
+I love that thing he did with Malone.
+Very impressive.
+
+Riley doesn't answer.
+
+THE ACTOR (CONT'D)
+Yeah, I get that.
+Sometimes cool guys don't make great dads.
+
+Marc pokes his head out of the back door to the production office.
+
+MARC
+There you are!
+Seems like we might have to chain your ankle to the reading table.
+Put you in a Hannibal Lecter getup.
+Just kidding. Or am I?
+
+THE ACTOR
+Listen, it was nice talking to you.
+You seem like a really cool kid.
+Everybody's heading over to Jo's Bar when we get done tonight.
+You should come with us.
+
+MARC
+I've been thinking the same thing.
+But what about his dad?
+
+THE ACTOR
+Look at the kid.
+You think his dad gives a fuck?
+
+MARC
+Clearly not.
+
+THE ACTOR
+Alright then so it's a date.
+Jo's Bar. 8 o'clock.
+Be there or be somewhere else.
+
+The Actor and Marc move towards the door. Almost as an afterthought:
+
+RILEY
+Oh, hey, do you need anything?
+
+MARC
+I'm good.
+
+RILEY
+I meant the Actor.
+
+THE ACTOR
+Nah dude, I'm cool.
+I'm not THAT kind of actor.
+
+They disappear back inside.
+
+Riley stands alone in the alley for a moment. The city humming around him.
+
+Then follows.
+
+FADE TO:
+
+---`,
+};
+
+const S=[
+{n:"1",t:"Los Angeles / Malibu Estate / Pool House",s:"Los Angeles to LAX",x:"drafted",f:"scene-01.md",c:["Riley","Mother","Maid"],u:"LA montage. Pool, bong, mom\u2019s call, mirror moment. Siddhartha leaving the palace."},
+{n:"2",t:"Delmer Encounter",s:"Los Angeles to LAX",x:"drafted",f:"scene-02.md",c:["Riley","Delmer","Madison"],u:"Delmer rolls up. Catnip, Sega Genesis, Bar Mitzvah. Madison arrives with red eyes."},
+{n:"3",t:"PCH \u2014 Traffic / Wrangler / Burning VW",s:"Los Angeles to LAX",x:"drafted",f:"scene-03.md",c:["Riley","Madison","Bryce","Perry","Candace","Chris"],u:"KIIS FM. Napalm Sunday. Misfits. Wrangler crew. Burning VW Bus. Golden God."},
+{n:"4",t:"LAX Curbside Breakup",s:"Los Angeles to LAX",x:"drafted",f:"scene-04.md",c:["Riley","Madison","Traffic Cop"],u:"Traffic cop as clock. \u2018I will email you every day.\u2019 Parking garage breakdown."},
+{n:"5",t:"Prague Airport \u2014 Guitar / Boarding Pass",s:"Prague Arrival",x:"drafted",f:"scene-05.md",c:["Riley"],u:"Late afternoon. Guitar broken. Boarding pass confetti."},
+{n:"6",t:"Marc\u2019s Arrival",s:"Prague Arrival",x:"drafted",f:"scene-06.md",c:["Riley","Marc"],u:"Marc at dusk. Hungarian boots. Father in Berlin."},
+{n:"7",t:"Van \u2014 Night Drive / Errand",s:"Prague Arrival",x:"drafted",f:"scene-07.md",c:["Riley","Marc"],u:"\u2018Should\u2019ve been here five years ago.\u2019 Errand. Bottle rockets."},
+{n:"8",t:"Flat \u2014 Arrival / Days Alone",s:"Prague Arrival",x:"drafted",f:"scene-08.md",c:["Riley","Marc"],u:"Marc leaves. DAYS PASS. Prince can\u2019t feed himself."},
+{n:"9",t:"Serenity / Mario Kart",s:"Prague Arrival",x:"drafted",f:"scene-09.md",c:["Riley","Serenity"],u:"DAYS LATER. \u2018There he is.\u2019 Toad vs. Yoshi."},
+{n:"10",t:"Prague Streets",s:"Prague Early Days",x:"drafted",f:"scene-10.md",c:["Riley"],u:"Marc\u2019s useless map. Music pulls him to record store."},
+{n:"11",t:"Record Store \u2014 First Tereza",s:"Prague Early Days",x:"drafted",f:"scene-11.md",c:["Riley","Tereza"],u:"Tereza works here. Coffee spill. \u2018It\u2019s fine.\u2019"},
+{n:"12",t:"Production Office \u2014 Guitar",s:"Prague Early Days",x:"drafted",f:"scene-12.md",c:["Riley","Marc"],u:"Marc\u2019s guitar. \u2018Engaged to a dentist.\u2019 \u2018Your ticket to sanity.\u2019"},
+{n:"13",t:"Hotel Continental",s:"Prague Early Days",x:"gap",f:null,c:["Riley","Serenity"],u:"Slim Aarons. Bill panic. PRIORITY GAP."},
+{n:"14",t:"Beer Garden",s:"Prague Early Days",x:"gap",f:null,c:["Riley","Serenity"],u:"\u2018We\u2019re actually kind of friends.\u2019 PRIORITY GAP."},
+{n:"15",t:"Serenity\u2019s Whirlwind",s:"Prague Early Days",x:"sketch",f:null,c:["Riley","Serenity"],u:"Vespa. Roller rink. Deferred."},
+{n:"16",t:"Park \u2014 Lester Carmichael",s:"Siblings / Weed Heist",x:"drafted",f:"scene-16.md",c:["Riley","Dimitri","Tereza"],u:"Colonel Murder. \u2018America Milwaukee.\u2019 Air-drumming."},
+{n:"17",t:"Weed Heist",s:"Siblings / Weed Heist",x:"drafted",f:"scene-17.md",c:["Riley","Dimitri","Tereza"],u:"Leatherman. \u2018Charge it, man!\u2019 \u2018Unfortunately.\u2019"},
+{n:"18",t:"Shotgun Sequence",s:"Siblings / Weed Heist",x:"drafted",f:"scene-18.md",c:["Riley","Dimitri","Tereza","Uncle"],u:"Uncle with shotgun. Escape through channel."},
+{n:"19",t:"Metro \u2014 Rain Czechs",s:"Siblings / Weed Heist",x:"drafted",f:"scene-19.md",c:["Riley","Dimitri","Tereza"],u:"Spaghetti with ketchup. Rain Czechs. Useless map."},
+{n:"A",t:"Alley \u2014 Actor",s:"Night Out",x:"drafted",f:"scene-alley.md",c:["Riley","The Actor","Marc"],u:"Pinball. \u2018Cool guys don\u2019t make great dads.\u2019"},
+{n:"20",t:"Serenity\u2019s Dorm Room",s:"Night Out",x:"drafted",f:"scene-20.md",c:["Riley","Serenity"],u:"Leo\u2019s lair. Screen. Aspen. Zip me."},
+{n:"21",t:"Taxi \u2014 MDMA",s:"Night Out",x:"drafted",f:"scene-21.md",c:["Riley","Serenity","Erin"],u:"Three tablets. \u2018Don\u2019t worry about it.\u2019"},
+{n:"22",t:"Jo\u2019s Bar",s:"Night Out",x:"drafted",f:"scene-22.md",c:["Riley","Serenity","Erin","Marc"],u:"Misgivings. Marc edgy. \u2018I\u2019m supernova.\u2019"},
+{n:"23",t:"Radost FX",s:"Night Out",x:"drafted",f:"scene-23.md",c:["Riley","Serenity","Erin"],u:"Peak intensity. Chemical euphoria."},
+{n:"24",t:"Charles Bridge",s:"Night Out",x:"drafted",f:"scene-24.md",c:["Riley","Serenity","Erin"],u:"Wizard of Oz. Toto."},
+{n:"25",t:"Erin\u2019s Loft",s:"Night Out",x:"drafted",f:"scene-25.md",c:["Riley","Serenity","Erin"],u:"Pillow fight. Feathers. Stranger."},
+{n:"27",t:"Coffeehouse \u2014 Milos",s:"Post-Night Out",x:"gap",f:null,c:["Riley","Tereza","Milos"],u:"Milos refuses English. PRIORITY GAP."},
+{n:"28",t:"Sabina Bathroom",s:"Post-Night Out",x:"drafted",f:"scene-28.md",c:["Riley","Sabina"],u:"\u2018Turn off water.\u2019 Karlovy Vary tickets."},
+{n:"36",t:"Karlovy Vary",s:"Karlovy Vary",x:"sketch",f:null,c:["Riley","Serenity","Father"],u:"\u2018Why are you here?\u2019 CRITICAL GAP."},
+{n:"M1",t:"Madison \u2014 USC / Kellerman",s:"Madison\u2019s Arc",x:"concept",f:null,c:["Madison","Kellerman"],u:"Aeneid. Italian lit. CONCEPT ONLY."}
+];
+const CH=[
+{nm:"Riley Sands",ag:"17",en:"Blocked Ajna",ds:"Scattered Aquarian. Pale for Malibu. Unknown Pleasures tee. Guitar proficiency is his saving grace.",vo:"Trails off. Band names. Massive hits."},
+{nm:"Madison Cheah",ag:"17",en:"Aries/Virgo/Cap",ds:"Malaysian/Singaporean. Precision and control. Arc ends at USC Film School.",vo:"Sharp. 'Czech. Not Russian.'"},
+{nm:"Serenity",ag:"17",en:"Svadhisthana",ds:"Ultra-Leo. Golden curls. Barefoot. False bodhisattva. Orange Vespa.",vo:"'Can\'t put the toothpaste back.'"},
+{nm:"Dimitri Jelinek",ag:"18",en:"Muladhara",ds:"Metal-band hair. Nokia + Leatherman. Charming bullshitter.",vo:"'Charge it, man!' Drops articles."},
+{nm:"Tereza Jelinek",ag:"17",en:"Anahata-Vishuddha",ds:"Half-Romani. Record store. Healer. Cello. Code-switches.",vo:"'It\'s fine.' 'Maybe.' Quiet."},
+{nm:"Marc",ag:"30s",en:"Expat retriever",ds:"Ponytail. Cargo everything. Nokia. Dimitri\'s doppelg\u00e4nger.",vo:"Never stops talking."},
+{nm:"Erin",ag:"\u2014",en:"Sahasrara",ds:"Black-Canadian. Sees through facades. Industrial loft.",vo:"Sharp. 'Charmed.'"},
+{nm:"Sabina",ag:"\u2014",en:"Indifference",ds:"Father\'s girlfriend. Riley = furniture.",vo:"'Turn off water.' 'You can go now.'"},
+{nm:"Delmer Martin",ag:"12",en:"Toxic privilege",ds:"Zinc oxide. Clip-ons. Golf cart.",vo:"'Have fun in Poland. Dickface.'"},
+{nm:"David Kellerman",ag:"Early 30s",en:"\u2014",ds:"USC Italian lit. Wedding ring. Not sleazy.",vo:"Not yet drafted."}
+];
+const DC=[
+{g:"Music & Sound",it:["Napalm Sunday","Misfits replaces Sonic Youth","KIIS FM for Madison","Cruel Summer placeholder","Mazzy Star post-breakup"]},
+{g:"Structure",it:["New Scene 1 \u2014 LA/pool house","No airplane scene","Breakup at LAX curb","Prague: afternoon \u2192 dusk","Days alone before Serenity","Madison separate"]},
+{g:"Characters",it:["Wrangler: Bryce, Perry, Candace, Chris","Tereza at record store","Marc\u2019s guitar: dentist","Marc/Dimitri doppelg\u00e4nger","Lester Carmichael definitive"]},
+{g:"Madison",it:["USC not UCLA","Italian lit survey","Aeneid breaks her open","Kellerman: 30s, ring","Lit \u2192 cinema \u2192 festival","Film School = first choice"]},
+{g:"Banked",it:["Scene 1 length","Delmer tonal stitch","Riley needs hunger","LA as parent"]}
+];
+const BM={drafted:["bd","Drafted"],sketch:["bs","Sketch"],concept:["bc","Concept"],gap:["bg","Gap"]};
+let vw="scenes",sl=null,q="";
+const $=id=>document.getElementById(id);
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function R(){const a=$("app");if(vw==="scenes"&&sl)return RD(a);if(vw==="scenes")return RS(a);if(vw==="characters")return RC(a);RX(a)}
+function RS(el){
+  const ql=q.toLowerCase();
+  const fl=q?S.filter(s=>{const hay=[s.t,s.u,s.s,...s.c,s.n,TEXTS[s.f]||""].join(" ").toLowerCase();return hay.includes(ql)}):S;
+  const sc={};fl.forEach(s=>{if(!sc[s.s])sc[s.s]=[];sc[s.s].push(s)});
+  const dc=S.filter(s=>s.x==="drafted").length;
+  let h='<div class="stats"><div><div class="sn" style="color:#f0f0f0">'+S.length+'</div><div class="sl">Total</div></div><div><div class="sn" style="color:#6abf7b">'+dc+'</div><div class="sl">Drafted</div></div><div><div class="sn" style="color:#bf6a6a">'+(S.length-dc)+'</div><div class="sl">Remaining</div></div></div>';
+  if(!Object.keys(sc).length)h+='<div class="em">No scenes match.</div>';
+  for(const[k,v]of Object.entries(sc)){h+='<div class="sh">'+k+'</div>';v.forEach(s=>{const has=!!s.f;h+='<div class="sc'+(has?'':' d')+'" '+(has?'onclick="O(\''+s.n+'\')"':'')+'><div class="snum">'+s.n+'</div><div><div class="st">'+s.t+'</div><div class="ss">'+s.u+'</div></div><span class="b '+BM[s.x][0]+'">'+BM[s.x][1]+'</span></div>'})}
+  el.innerHTML=h}
+function RD(el){
+  const s=S.find(x=>x.n===sl);if(!s)return;
+  let m='<span class="b '+BM[s.x][0]+'">'+BM[s.x][1]+'</span>';
+  if(s.f)m+='<span class="mt">'+s.f+'</span>';
+  s.c.forEach(c=>{m+='<span class="mt">'+c+'</span>'});
+  const txt=s.f&&TEXTS[s.f]?esc(TEXTS[s.f]):"";
+  el.innerHTML='<button class="bk" onclick="C()">\u2190 Back</button><div class="dh"><h1>Scene '+s.n+'</h1><h2>'+s.t+'</h2><div class="dm">'+m+'</div><p class="ds">'+s.u+'</p></div>'+(txt?'<div class="sp">'+txt+'</div>':'<div class="em">Not yet drafted.</div>')}
+function RC(el){
+  const ql=q.toLowerCase(),fl=q?CH.filter(c=>[c.nm,c.ds,c.vo,c.en].join(" ").toLowerCase().includes(ql)):CH;
+  if(!fl.length){el.innerHTML='<div class="em">No match.</div>';return}
+  el.innerHTML='<div class="cg">'+fl.map(c=>'<div class="cc"><h3>'+c.nm+'</h3><div class="ca">'+c.ag+' \u00b7 '+c.en+'</div><p>'+c.ds+'</p><div class="cv">"'+c.vo+'"</div></div>').join("")+'</div>'}
+function RX(el){el.innerHTML='<div style="max-width:620px">'+DC.map(g=>'<div class="dg"><h3>'+g.g+'</h3>'+g.it.map(i=>'<div class="di"><span class="ck">'+(g.g==="Banked"?"\u2014":"\u2713")+'</span><span class="dt">'+i+'</span></div>').join("")+'</div>').join("")+'</div>'}
+window.O=n=>{sl=n;R();scrollTo(0,0)};window.C=()=>{sl=null;R()};
+$("tabs").onclick=e=>{if(!e.target.classList.contains("tab"))return;document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));e.target.classList.add("on");vw=e.target.dataset.v;sl=null;R()};
+$("sr").oninput=e=>{q=e.target.value;sl=null;R()};R();
+</script></body></html>
